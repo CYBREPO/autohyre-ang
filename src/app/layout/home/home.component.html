@@ -11,7 +11,7 @@
                 </ng-container>
             </div>
             <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''" *ngFor="let img of page?.bannerImages;let i = index">
+                <div class="carousel-item h-100" [ngClass]="i == 0 ? 'active' : ''" *ngFor="let img of page?.bannerImages;let i = index">
                     <img src="{{domain + img}}" class="w-100 d-block"
                         alt=`slide${i}`>
                     <div class="container d-flex h-100 align-items-center">
@@ -31,6 +31,7 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide-to="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
