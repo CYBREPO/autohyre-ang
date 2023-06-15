@@ -1,5 +1,5 @@
 <article class="thumbnail item" (click)="clickingCard()" *ngIf="cardsData && !loc">
-        <img src="data:{{this.cardsData.image.contentType}};base64, {{this.cardsData.image.imageBase64}}"
+        <img src="{{domain + this.cardsData.image}}"
                 class="img-responsive" alt="">
         <div class="caption fw-bolder my-3">{{cardsData.name}}</div>
 </article>

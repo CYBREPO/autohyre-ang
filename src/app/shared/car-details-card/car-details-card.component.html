@@ -1,15 +1,15 @@
 <article class="thumbnail item  text-start" (click)="clickingCard()" *ngIf="cardsData">
     <ng-container>
 
-        <img src="data:{{this.cardsData?.images[0]?.contentType}};base64, {{this.cardsData?.images[0]?.imageBase64}}"
+        <img src="{{domain + this.cardsData?.images[0]}}"
             class="img-fluid">
 
         <div class="px-3">
             <div class="caption text-dark fw-bolder my-3">
-                {{cardsData.vehicle.make}} {{cardsData.vehicle.model}}
+                {{cardsData.make}} {{cardsData.model}}
             </div>
             <span class="text-dark">
-                {{cardsData.vehicle.rating}}
+                {{cardsData.rating}}
             </span>
             <div class="">
                 <div class="">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <hr class="my-2">
-            <div class="price mb-2 text-dark">{{cardsData.vehicle.price}}₦/day</div>
+            <div class="price mb-2 text-dark">{{cardsData.price}}₦/day</div>
         </div>
 
     </ng-container>

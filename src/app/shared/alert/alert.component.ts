@@ -38,16 +38,16 @@ export class AlertComponent {
     });
 
     // this.loaderService.status.subscribe((val: boolean) => {
-    //   setTimeout(() => {
-    //     if (!val) {
-    //       this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
-    //         this.isError = false;
-    //       });
-    //       this.successSubject.pipe(debounceTime(600000)).subscribe(() => {
-    //         this.isSuccess = false;
-    //       });
-    //     }
-    //   }, 0);
+      setTimeout(() => {
+        // if (!val) {
+          this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
+            this.isError = false;
+          });
+          this.successSubject.pipe(debounceTime(5000)).subscribe(() => {
+            this.isSuccess = false;
+          });
+        // }
+      }, 0);
     // });
 
   }

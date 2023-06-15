@@ -1,7 +1,7 @@
 <div data-testid="template">
 
     <div class="seo-pages-azjghx e16c753r0"
-        [ngStyle]="{'background-image': this.data?.bannerImg ? 'url(data:'+ this.data.bannerImg.contentType + ';base64,'+ this.data.bannerImg.imageBase64 + ')' : ''}">
+        [ngStyle]="{'background-image': this.data?.bannerImg ? 'url('+ domain +  this.data.bannerImg + ')' : ''}">
     </div>
 
     <div class="seo-pages-12odiic e1u7lfr20">
@@ -35,7 +35,7 @@
                     <div class="styledHeadshotWrapper seo-pages-1rzsemh-StyledHeadshotWrapper e18k58aj8">
 
                         <img alt="Andre Haddad"
-                            src="data:{{lead.profile.contentType}};base64, {{lead.profile.imageBase64}}"
+                            src="{{domain + lead.profile}}"
                             class="e18k58aj7 seo-pages-1e3txu3-StyledImage-StyledHeadshot e3dl1lq0" />
 
                         <p class="styledHeadshotText e18k58aj6 seo-pages-6c3rzt-StyledText-StyledHeadshotText">

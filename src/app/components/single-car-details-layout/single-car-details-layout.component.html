@@ -8,7 +8,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active" *ngFor="let img of this.cardetails.images;let i = index">
-                <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block" alt=`slide${i}`>
+                <img src="{{ domain + img }}" class="w-100 d-block" alt=`slide${i}`>
             </div>
 
         </div>

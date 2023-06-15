@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-aboutus',
@@ -10,6 +11,7 @@ import { HttpService } from 'src/app/service/http.service';
 export class AboutusComponent {
   
   data: any;
+  domain: string = environment.url;
   constructor(private httpService: HttpService){}
 
   ngOnInit(){

@@ -9,6 +9,7 @@ import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 import { UserInfoService } from 'src/app/service/user-info.service';
 import { CkEditorComponent } from 'src/app/shared/ck-editor/ck-editor.component';
 import { QuotesComponent } from '../quotes/quotes.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-single-car-details-layout',
@@ -16,7 +17,8 @@ import { QuotesComponent } from '../quotes/quotes.component';
   styleUrls: ['./single-car-details-layout.component.scss']
 })
 export class SingleCarDetailsLayoutComponent {
-
+  
+  domain: string = environment.url;
   cardetails: any;
   additionDtls: any;
   dateRange: any;
