@@ -30,6 +30,7 @@ const Routes = [
     { path: 'mangeCars', component: ManageCarsComponent},
     { path: 'users', component: UsersComponent},
     { path: 'pages', component: PagesDashboardComponent},
+    { path: 'hosts', component: HostComponent},
     { path: "**", redirectTo: ''}
   ]}
 ]

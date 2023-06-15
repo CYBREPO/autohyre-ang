@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/service/http.service';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 
 @Component({
-  selector: 'app-about-us',
+  selector: 'app-about-us-dashboard',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss']
 })

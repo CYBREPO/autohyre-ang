@@ -33,6 +33,7 @@ class mail{
 class host{
     public static createHost = "host/createHost";
     public static getAllHost = "host/getAllHost";
+    public static updateHostStatus = "host/updateHostStatus";
 
 }
 class account{
@@ -44,6 +45,7 @@ class account{
     public static getUsers = "account/getUsers";
     public static updateUserStatus = "account/updateUserStatus";
     public static deleteUser = "account/deleteUser";
+    public static getCount = "account/getCount";
 
 }
 class pages{

@@ -6,7 +6,7 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-dashboard',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

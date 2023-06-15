@@ -6,7 +6,7 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
 
 @Component({
-  selector: 'app-our-list',
+  selector: 'app-our-list-dashboard',
   templateUrl: './our-list.component.html',
   styleUrls: ['./our-list.component.scss']
 })

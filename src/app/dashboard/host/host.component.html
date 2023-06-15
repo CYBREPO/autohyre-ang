@@ -1,19 +1,15 @@
-<!-- <div class="p-3">
+<div class="p-3">
     <h6>Host Requests</h6>
     <div class="container">
         <div class="border-grey border border-1 p-3">
-            <div class="d-flex align-items-end mb-3">
-
+            <!-- <div class="d-flex align-items-end mb-3">
                 <button type="button" class="btn btn-primary" hidden #modalBtn data-bs-toggle="modal"
                     data-bs-target="#modalId">
                 </button>
-            </div>
-
-
-
-            <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="models"
+            </div> -->
+            <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="hosts"
                 (paginationEventHandler)="paginationEventHandler($event)"
                 (gridEventHandler)="gridEvent($event)"></app-table>
         </div>
     </div>
-</div> -->
+</div>

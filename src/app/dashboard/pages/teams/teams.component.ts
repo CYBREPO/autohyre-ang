@@ -6,7 +6,7 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
 
 @Component({
-  selector: 'app-teams',
+  selector: 'app-teams-dashboard',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.scss']
 })

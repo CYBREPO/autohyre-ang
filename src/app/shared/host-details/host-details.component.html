@@ -1,0 +1,109 @@
+<!-- <div class="modal fade" id="modalId" tabindex="-1"> -->
+    <div class="">
+        <form [formGroup]="hostform">
+            <div class="modal-content">
+             <div class="container">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Modal title
+                        <span [ngClass]="statusClass">{{data?.status}}</span>
+                    </h5>
+                    <button type="button" class="btn-close" (click)="close()"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">1. User</label>
+                                <input formControlName="user" type="text" class="d-block">
+                            </div>
+                            <div class="form-field ">
+                                <label for="" class="d-block">2. Your car</label>
+                                <input formControlName="car" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">. Profile photo</label>
+                                <input formControlName="Profile" type="file" name="" id=""
+                                    (change)="handleFileInputProfile($event)">
+                            </div>
+                        </div> -->
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">3. Mobile number</label>
+                                <input formControlName="mobilenumber" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">4. Driver’s license</label>
+                                <input formControlName="license" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">5. Your goals</label>
+                                <input formControlName="goals" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">6. Car availability</label>
+                                <input formControlName="availability" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">7. Car details</label>
+                                <input formControlName="details" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">8. Car photos</label>
+                                <input formControlName="photos" type="file" class="d-block" multiple
+                                    (change)="handleFileInput($event)">
+                            </div>
+                        </div> -->
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">8. Payout</label>
+                                <input formControlName="payout" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">9. Safety & quality standards</label>
+                                <input formControlName="qualitystandards" type="text" class="d-block">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mt-3 px-2">
+                            <div class="form-field ">
+                                <label for="" class="d-block">11. Submit your listing</label>
+                                <input formControlName="submityourlisting" type="text" class="d-block">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="close()" style="margin-left: 10px;">Close</button>
+                    <button type="submit" class="btn btn-primary" (click)="approveHost()" style="margin-left: 10px;">Approve</button>
+                    <button type="submit" class="btn btn-primary" (click)="rejectHost()" >Reject</button>
+                </div>
+             </div>
+            </div>
+        </form>
+    </div>
+<!-- </div> -->

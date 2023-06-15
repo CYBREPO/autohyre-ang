@@ -4,6 +4,7 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { locations, vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
+import { LoaderService } from 'src/app/service/loader.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 
 @Component({
@@ -19,12 +20,19 @@ export class HomeComponent {
   page: any;
 
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private httpservice: HttpService) { }
+    private httpservice: HttpService,private loader: LoaderService, private modal: ModalDialogService) { }
 
   ngOnInit() {
     this.locations = locations.locations;
     this.getHomePage();
     this.getBrands();
+
+    // this.loader.display(true);
+
+    // this.modal.success("jshfkjhdsflksdfkds");
+    // this.loader.display(false);
+
+
   }
 
   getHomePage(){
