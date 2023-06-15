@@ -11,9 +11,8 @@
                 </ng-container>
             </div>
             <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''"
-                    *ngFor="let img of page?.bannerImages;let i = index">
-                    <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block"
+                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''" *ngFor="let img of page?.bannerImages;let i = index">
+                    <img src="{{domain + img}}" class="w-100 d-block"
                         alt=`slide${i}`>
                     <div class="container d-flex h-100 align-items-center">
 
@@ -74,8 +73,7 @@
     <div class="container">
         <div class="row justify-content-center py-md-5">
             <div class="col-md-5" *ngIf="page?.mainImg">
-                <img src="data:{{page.mainImg.contentType}};base64, {{page.mainImg.imageBase64}}" class="img-fluid"
-                    alt="">
+                <img src="{{domain + page?.mainImg}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-5">
                 <!-- <div class="subheading  fs-3 mb-3">

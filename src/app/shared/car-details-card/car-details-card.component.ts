@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-car-details-card',
@@ -6,6 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./car-details-card.component.scss']
 })
 export class CarDetailsCardComponent {
+
+  domain: string = environment.url;
   @Input() cardsData: any
   @Output() clickCard: EventEmitter<any> = new EventEmitter
 

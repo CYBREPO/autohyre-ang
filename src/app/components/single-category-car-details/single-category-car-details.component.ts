@@ -43,7 +43,7 @@ export class SingleCategoryCarDetailsComponent {
 
   parentEventHandlerFunction(event: any) {
     // this.datatransferService.setData(event);
-    this.router.navigate(['/cust/cardetails', event.vehicle._id])
+    this.router.navigate(['/cust/cardetails', event._id])
   }
 }
 

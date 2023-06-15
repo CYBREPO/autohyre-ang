@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-listcars',
@@ -10,7 +11,7 @@ import { HttpService } from 'src/app/service/http.service';
 export class ListcarsComponent {
 
   data: any;
-  mainImg: string;
+  domain: string = environment.url;
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
@@ -21,8 +22,6 @@ export class ListcarsComponent {
     this.httpService.httpGet(ApiUrls.pages.getOurList, null).subscribe((res: any) => {
       if (res['success']) {
         this.data = res['data'];
-        this.mainImg = "data:"+ this.data.mainImg.contentType + ";base64,"+ this.data.mainImg.imageBase64;
-        // this.mainImg = "data:"+ this.data.mainImg.contentType + ";base64,"+ this.data.mainImg.imageBase64;
       }
     });
   }

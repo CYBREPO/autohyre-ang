@@ -26,7 +26,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private cacheService: CacheService,
     private encryptionService: EncryptionService, private modalDialogService: ModalDialogService,
-    private userInfoService: UserInfoService, private router: Router, private activatedRoute: ActivatedRoute) { }
+    private userInfoService: UserInfoService, private router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.initForm()

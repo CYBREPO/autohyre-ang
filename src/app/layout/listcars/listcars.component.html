@@ -1,4 +1,4 @@
-<div class="banner" *ngIf="data?.bannerImg" [ngStyle]="{'background-image':'url(data:'+ this.data.bannerImg.contentType + ';base64,'+ this.data.bannerImg.imageBase64 + ')'}">
+<div class="banner" *ngIf="data?.bannerImg" [ngStyle]="{'background-image':'url('+ domain + this.data.bannerImg + ')'}">
 
 	<div class="container">
 		<div class="w-75">
@@ -32,7 +32,7 @@
 		</div>
 
 	</section>
-	<div *ngIf="data?.mainImg" class="jumbotron" [ngStyle]="{'background-image':'url('+ mainImg + ')'}">
+	<div *ngIf="data?.mainImg" class="jumbotron" [ngStyle]="{'background-image':'url('+ domain + data?.mainImg + ')'}">
 
 	</div>
 	<section>

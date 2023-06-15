@@ -6,6 +6,7 @@ import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
 import { LoaderService } from 'src/app/service/loader.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent {
   // = vehicleModels.vehicleModels;
   locations = locations.locations;
   page: any;
+  domain: string = environment.url;
 
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService,private loader: LoaderService, private modal: ModalDialogService) { }

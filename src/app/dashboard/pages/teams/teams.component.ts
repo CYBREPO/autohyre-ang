@@ -47,7 +47,7 @@ export class TeamsComponent {
           name: m.name,
           designation: m.designation,
           description: m.description,
-          // profile: m.profile,
+          profile: '',
           id: m._id
         }));
       });
@@ -61,7 +61,7 @@ export class TeamsComponent {
           name: m.name,
           designation: m.designation,
           description: m.description,
-          // profile: m.profile,
+          profile: '',
           id: m._id
         }));
       })
