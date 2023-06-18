@@ -27,9 +27,9 @@
                     <div class="single-footer quick_links">
                         <h3>Quick Links</h3>
                         <ul class="quick-links">
-                            <li><a [routerLink]="['/aboutus']" >About us</a></li>
-                            <li><a [routerLink]="['/team']" >Our Team</a></li>
-                            <li><a [routerLink]="['/list-cars']" >List your car</a></li>
+                            <li><a [routerLink]="['/aboutus']">About us</a></li>
+                            <li><a [routerLink]="['/team']">Our Team</a></li>
+                            <li><a [routerLink]="['/list-cars']">List your car</a></li>
                         </ul>
                         <ul class="quick-links">
                             <li><a href="#">Privacy Policy</a></li>
@@ -42,14 +42,11 @@
                         <h3>Vehicle types</h3>
                         <ul>
                             <ul class="quick-links">
-                                <li><a class="" href="/gb/en/truck-rental/united-kingdom">Trucks</a></li>
-                                <li><a class="" href="/gb/en/van-rental/united-kingdom">Vans</a></li>
-                                <li><a class="" href="/gb/en/exotic-luxury-rental/united-kingdom">Exotic Luxury</a></li>
-
-                                <li><a class="" href="/gb/en/minivan-rental/united-kingdom">Minivans</a>
-                                </li>
-                                <li><a class="" href="/gb/en/suv-rental/united-kingdom">SUVs</a></li>
-                                <li><a class="" href="/gb/en/car-rental/united-kingdom">Cars</a></li>
+                                <li><a class="" (click)="parentEventHandlerFunction('truck')">Trucks</a></li>
+                                <li><a class="" (click)="parentEventHandlerFunction('van')">Vans</a></li>
+                                <li><a class="" (click)="parentEventHandlerFunction('ninivans')">Minivans</a></li>
+                                <li><a class="" (click)="parentEventHandlerFunction('suv')">SUVs</a></li>
+                                <li><a class="" (click)="parentEventHandlerFunction('car')">Cars</a></li>
                             </ul>
                         </ul>
                     </div>

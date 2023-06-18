@@ -6,14 +6,14 @@
             data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <ng-container *ngFor="let img of page?.bannerImages; let i= index">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=`${i}`
-                        aria-current="true" aria-label=`slide${i}`></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
+                        [attr.aria-current]="i == 0 ? true: false" [attr.aria-label]="'slide' + i"></button>
                 </ng-container>
             </div>
             <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100" [ngClass]="i == 0 ? 'active' : ''" *ngFor="let img of page?.bannerImages;let i = index">
-                    <img src="{{domain + img}}" class="w-100 d-block"
-                        alt=`slide${i}`>
+                <div class="carousel-item h-100" [ngClass]="i == 0 ? 'active' : ''"
+                    *ngFor="let img of page?.bannerImages;let i = index">
+                    <img src="{{domain + img}}" class="w-100 d-block" [attr.alt]="'slide' + i">
                     <div class="container d-flex h-100 align-items-center">
 
                         <div class="row w-100 ">
@@ -31,7 +31,6 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide-to="prev">
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>

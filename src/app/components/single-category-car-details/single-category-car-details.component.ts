@@ -12,16 +12,15 @@ import { HttpService } from 'src/app/service/http.service';
 export class SingleCategoryCarDetailsComponent {
 
   cardetails: any;
-  makeType: string;
+  filterParams: any = {};
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
     private activatedRoute: ActivatedRoute, private httpService: HttpService) {
-    activatedRoute.params.subscribe(param => {
-      if (param['make']) {
-        this.makeType = param['make'];
-      }
-    })
+      activatedRoute.queryParams.subscribe(res => {
+        this.filterParams['type'] = res['type'];
+        this.filterParams['make'] = res['make'];
+      });
   }
 
 
@@ -33,7 +32,8 @@ export class SingleCategoryCarDetailsComponent {
 
   getPopularVehicles() {
     let param = {
-      make: this.makeType
+      make: this.filterParams?.make??"",
+      category: this.filterParams?.type??"",
     }
     this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
       if (res['success'])

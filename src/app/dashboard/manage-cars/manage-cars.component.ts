@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination, fuel } from 'src/app/constants/constant';
 import { HttpService } from 'src/app/service/http.service';
@@ -30,6 +31,9 @@ export class ManageCarsComponent {
   submitted: boolean = false;
   isLoading: boolean = false;
   searchText: string = "";
+  options: any = {
+    componentRestrictions: { country: 'NGA' }
+  }
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -99,6 +103,12 @@ export class ManageCarsComponent {
         ]
       }
     ]
+  }
+
+  handleAddressChange(address: Address) {
+    console.log(address.formatted_address)
+    console.log(address.geometry.location.lat())
+    console.log(address.geometry.location.lng())
   }
 
   getAllCompanies() {
@@ -181,6 +191,7 @@ export class ManageCarsComponent {
     // formData.append(`id`, "");
     formData.append(`listingCreatedTime`, "");
     formData.append(`make`, this.formControl['brand'].value);
+    formData.append(`vin`, this.formControl['vin'].value);
     formData.append(`marketAreaId`, "");
     formData.append(`marketCountry`, "");
     formData.append(`model`, this.formControl['model'].value);

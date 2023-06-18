@@ -84,6 +84,16 @@
                                         <div class="col-2 mt-3 px-1">
                                             <div class="form-field ">
                                                 <label for="" class="d-block">Price</label>
+                                                <input class="form-control" type="text" name="vin" id="vin"
+                                                    formControlName="vin">
+                                                <span
+                                                    *ngIf="submitted && vehicleForm.get('vin')?.errors?.['required']">Price
+                                                    is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 mt-3 px-1">
+                                            <div class="form-field ">
+                                                <label for="" class="d-block">Price</label>
                                                 <input class="form-control" type="number" name="price" id="price"
                                                     formControlName="price">
                                                 <span
@@ -177,7 +187,19 @@
                                                     required</span>
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-2 mt-3 px-1">
+                                            <div class="form-field ">
+                                                <label for="" class="d-block">Location</label>
+                                                <input class="form-control" ngx-google-places-autocomplete
+                                                    [options]="options"
+                                                    (onAddressChange)="handleAddressChange($event)" />
+                                                <span
+                                                    *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Location
+                                                    is
+                                                    required</span>
+                                            </div>
+                                        </div>
+
 
 
                                     </div>

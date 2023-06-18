@@ -4,7 +4,7 @@
         <div class="section-heading text-center mt-md-2"> Find your drive </div>
         <app-search-bar></app-search-bar>
 
-        <div class="row my-md-5" *ngIf="cardetails">
+        <div class="row my-md-5" *ngIf="cardetails && cardetails.length; else noDataFound">
 
             <ng-container *ngFor="let cardetail of cardetails">
                 <div class="col-md-3 text-left">
@@ -13,5 +13,11 @@
             </ng-container>
 
         </div>
+        <ng-template #noDataFound>
+            <div class="no-data-found my-5">
+                <img src="../../../assets/images/il_motorway_through_the_desert37fd2f1c855007ac3941.png" alt="" width="5%">
+                <h4 class="mt-4 text-center">No cars found</h4>
+            </div>
+        </ng-template>
     </div>
 </div>

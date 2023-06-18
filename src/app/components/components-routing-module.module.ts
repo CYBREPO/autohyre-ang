@@ -13,7 +13,7 @@ const routes = [
     {path: "cardetails", component: SingleCarDetailsLayoutComponent},
     {path: "cardetails/:id", component: SingleCarDetailsLayoutComponent},
     {path: "carcategory", component: SingleCategoryCarDetailsComponent},
-    {path: "carcategory/:make", component: SingleCategoryCarDetailsComponent},
+    // {path: "carcategory/:make/:type", component: SingleCategoryCarDetailsComponent},
   ]}
 ]
 
