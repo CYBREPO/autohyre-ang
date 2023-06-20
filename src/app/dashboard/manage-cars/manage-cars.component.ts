@@ -62,6 +62,7 @@ export class ManageCarsComponent {
       doors: [''],
       seats: [''],
       year: [''],
+      vin: [''],
 
 
       ageBook: [false],

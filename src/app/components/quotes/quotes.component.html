@@ -36,13 +36,21 @@
             <div class="form-group">
                 <label for="" class="d-block">Pick Up Location</label>
                 <input class="form-control" ngx-google-places-autocomplete [options]="options"
+                    placeholder="Enter a location where you want to be picked up"
                     (onAddressChange)="handleAddressChange($event,'pickup')" formControlName="pickup" />
                 <!-- <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Pick Up Location is required</span> -->
             </div>
             <div class="form-group">
                 <label for="" class="d-block">Drop Location</label>
                 <input class="form-control" ngx-google-places-autocomplete [options]="options"
-                    (onAddressChange)="handleAddressChange($event,'drop')" formControlName="drop"/>
+                    placeholder="Enter a location where you are going"
+                    (onAddressChange)="handleAddressChange($event,'drop')" formControlName="drop" />
+            </div>
+
+            <div class="form-group">
+                <label for="" class="d-block">Additional Information</label>
+                <textarea name="info" id="info" cols="30" rows="10" formControlName="information"></textarea>
+
             </div>
 
             <div class="form-field mt-3 mb-3">

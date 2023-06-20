@@ -24,24 +24,41 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userInfoService.getLoggedInUser()
     this.initForm();
-    console.log(this.userInfoService);
+    if(this.user == null || this.user == undefined){
+      this.logout();
+    }
   }
 
 
 
   initForm() {
     this.hostform = this.fb.group({
-      car: [''],
-      Profile: [''],
-      mobilenumber: [''],
-      license: [''],
+      make: [''],
+      model: [''],
+      year: [''],
+      vin: [''],
+      
+      ownerName: [''],
+      ownerMobile: [''],
+      ownerProfile: [''],
+
+      driverName: [''],
+      drivingLicense: [''],
+      driverMobile: [''],
+      driverProfile: [''],
+
       goals: [''],
-      availability: [''],
-      details: [''],
+      carAvailability: [''],
       photos: [''],
-      payout: [''],
-      qualitystandards: [''],
-      submityourlisting: [''],
+      bankName: [''],
+      accountName: [''],
+      accountNumber: [''],
+      safetyQuantity: [''],
+
+      airBags: [''],
+      fireExtinguisher: [''],
+      cCaution: [''],
+      umbrella: [''],
     })
   }
   hamburgerClick() {
@@ -52,22 +69,37 @@ export class HeaderComponent implements OnInit {
     this.carFiles = event?.target?.files;
   }
 
-  handleFileInputProfile(event: any): void {
-    this.profile = event?.target?.files[0];
+  handleFileInputProfile(event: any,type:string): void {
+    this.hostform.controls[type].setValue(event?.target?.files[0]);
   }
 
   becomeHost() {
     let formdata = new FormData;
-    formdata.append(`car`, this.hostform.controls['car'].value);
-    formdata.append(`mobile`, this.hostform.controls['mobilenumber'].value);
-    formdata.append(`drivingLicense`, this.hostform.controls['license'].value);
+    formdata.append(`make`, this.hostform.controls['make'].value);
+    formdata.append(`model`, this.hostform.controls['model'].value);
+    formdata.append(`year`, this.hostform.controls['year'].value);
+    formdata.append(`vin`, this.hostform.controls['vin'].value);
+
+    formdata.append(`ownerName`, this.hostform.controls['ownerName'].value);
+    formdata.append(`ownerMobile`, this.hostform.controls['ownerMobile'].value);
+    formdata.append(`ownerProfile`, this.hostform.controls['ownerProfile'].value);
+
+    formdata.append(`driverName`, this.hostform.controls['driverName'].value);
+    formdata.append(`drivingLicense`, this.hostform.controls['drivingLicense'].value);
+    formdata.append(`driverMobile`, this.hostform.controls['driverMobile'].value);
+    formdata.append(`driverProfile`, this.hostform.controls['driverProfile'].value);
+
     formdata.append(`goals`, this.hostform.controls['goals'].value);
-    formdata.append(`carAvailability`, this.hostform.controls['availability'].value);
-    formdata.append(`carDetail`, this.hostform.controls['details'].value);
-    formdata.append(`payout`, this.hostform.controls['payout'].value);
-    formdata.append(`safetyQuantity`, this.hostform.controls['qualitystandards'].value);
-    formdata.append(`listing`, this.hostform.controls['submityourlisting'].value);
-    formdata.append(`profile`, this.profile);
+    formdata.append(`carAvailability`, this.hostform.controls['carAvailability'].value);
+    formdata.append(`bankName`, this.hostform.controls['bankName'].value);
+    formdata.append(`accountName`, this.hostform.controls['accountName'].value);
+    formdata.append(`accountNumber`, this.hostform.controls['accountNumber'].value);
+    formdata.append(`safetyQuantity`, this.hostform.controls['safetyQuantity'].value);
+
+    formdata.append(`airBags`, this.hostform.controls['airBags'].value);
+    formdata.append(`fireExtinguisher`, this.hostform.controls['fireExtinguisher'].value);
+    formdata.append(`cCaution`, this.hostform.controls['cCaution'].value);
+    formdata.append(`umbrella`, this.hostform.controls['umbrella'].value);
 
     for (let i = 0; i < this.carFiles.length; i++) {
       formdata.append(`carPhotos`, this.carFiles[i]);
@@ -75,6 +107,7 @@ export class HeaderComponent implements OnInit {
 
     this.httpService.httpPostFormData(ApiUrls.host.createHost, formdata).subscribe(res => { })
   }
+
   logout(): void {
     localStorage.removeItem('currentUser');
     this.router.navigate(['account/login']);
