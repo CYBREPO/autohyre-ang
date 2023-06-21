@@ -11,7 +11,7 @@
           <div class="form-outline flex-fill mb-0">
             <label class="form-label" for="form3Example1c">Your Name</label>
             <input type="text" id="form3Example1c" class="form-control" formControlName="name" />
-
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['name'].errors?.['required']">Name is required</span>
           </div>
         </div>
 
@@ -21,7 +21,7 @@
             <label class="form-label" for="form3Example3c">Your Email</label>
             <input type="email" id="form3Example3c" class="form-control" formControlName="email" />
 
-            <span *ngIf="submitted && regForm['email'].errors?.['required']">Email is required</span>
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['email'].errors?.['required']">Email is required</span>
           </div>
         </div>
 
@@ -33,8 +33,12 @@
             <input type="password" id="form3Example4c" class="form-control" formControlName="password"
               (change)="setConfirmPwdValidator()" />
 
-            <span *ngIf="submitted && regForm['password'].errors?.['required']">Password is required</span>
-            <span *ngIf="submitted && regForm['password'].errors?.['pattern']">Invalid Password</span>
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['password'].errors?.['required']">Password is required</span>
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['password'].errors?.['pattern']">
+              Password should be alphanumeric.<br>
+              Password length must be greater than 8 characters.<br>
+              Password must contain a special character (@, $, !, &, etc).
+            </span>
           </div>
         </div>
 
@@ -44,9 +48,9 @@
             <label class="form-label" for="form3Example4cd">Repeat your password</label>
             <input type="password" id="form3Example4cd" class="form-control" formControlName="confirmPassword" />
 
-            <span *ngIf="submitted && regForm['confirmPassword'].errors?.['required']">Confirm Password is
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['confirmPassword'].errors?.['required']">Confirm Password is
               required</span>
-            <span *ngIf="submitted && regForm['confirmPassword'].errors?.['notSame']">Password and Confirm Password is
+            <span class="text-danger d-block mt-2" *ngIf="submitted && regForm['confirmPassword'].errors?.['notSame']">Password and Confirm Password is
               not same</span>
           </div>
         </div>

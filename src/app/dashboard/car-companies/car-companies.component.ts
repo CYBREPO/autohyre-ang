@@ -111,9 +111,10 @@ export class CarCompaniesComponent {
 
   addNewCompany() {
     this.submitted = true;
-    if (this.carCompanyForm.invalid) {
+    if (this.carCompanyForm.invalid || !this.file) {
       return;
     }
+
     let formData = new FormData();
     let api = ApiUrls.brand.setBrands;
     formData.append(`name`, this.carCompanyForm.controls['carCompany'].value);

@@ -1,32 +1,31 @@
-import { UserInfoService } from 'src/app/service/user-info.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiUrls } from 'src/app/constants/apiRoutes';
-import { HttpService } from 'src/app/service/http.service';
-import { IUser } from 'src/app/interface/userInterface';
 import { Router } from '@angular/router';
+import { ApiUrls } from 'src/app/constants/apiRoutes';
+import { IUser } from 'src/app/interface/userInterface';
+import { HttpService } from 'src/app/service/http.service';
+import { UserInfoService } from 'src/app/service/user-info.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-become-a-host',
+  templateUrl: './become-a-host.component.html',
+  styleUrls: ['./become-a-host.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class BecomeAHostComponent {
 
   hostform: FormGroup;
   carFiles: FileList;
-  profile: File;
-  hamburgerClicked: boolean = false;
   submitted: boolean = false;
   user: IUser;
 
 
-  constructor(private fb: FormBuilder, private httpService: HttpService, private userInfoService: UserInfoService, private router: Router) { }
+  constructor(private fb: FormBuilder, private httpService: HttpService, private userInfoService: UserInfoService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.userInfoService.getLoggedInUser()
     this.initForm();
-    if(this.user == null || this.user == undefined){
+    if (this.user == null || this.user == undefined) {
       this.logout();
     }
   }
@@ -39,10 +38,11 @@ export class HeaderComponent implements OnInit {
       model: ['', [Validators.required]],
       year: ['', [Validators.required]],
       vin: ['', [Validators.required]],
-      
+
       ownerName: ['', [Validators.required]],
       ownerMobile: ['', [Validators.required]],
       ownerProfile: ['', [Validators.required]],
+      sameDriver: [false],
 
       driverName: ['', []],
       drivingLicense: ['', [Validators.required]],
@@ -57,28 +57,44 @@ export class HeaderComponent implements OnInit {
       accountNumber: ['', [Validators.required]],
       safetyQuantity: ['', [Validators.required]],
 
-      airBags: [''],
-      fireExtinguisher: [''],
-      cCaution: [''],
-      umbrella: [''],
+      airBags: [false],
+      fireExtinguisher: [false],
+      cCaution: [false],
+      umbrella: [false],
     })
   }
-  hamburgerClick() {
-    this.hamburgerClicked = !this.hamburgerClicked;
-  }
+
 
   handleFileInput(event: any): void {
     this.carFiles = event?.target?.files;
   }
 
-  handleFileInputProfile(event: any,type:string): void {
+  handleFileInputProfile(event: any, type: string): void {
     this.hostform.controls[type].setValue(event?.target?.files[0]);
+  }
+
+  fillDriver() {
+
+    if (this.hostform.controls['sameDriver'].value) {
+      this.hostform.patchValue({
+        driverName: this.hostform.controls["ownerName"].value,
+        driverMobile: this.hostform.controls["ownerMobile"].value,
+        driverProfile: this.hostform.controls["ownerProfile"].value,
+      });
+      this.hostform.controls['driverName'].disable();
+      this.hostform.controls['driverMobile'].disable();
+      this.hostform.controls['driverProfile'].disable();
+    }
+    else {
+      this.hostform.enable();
+    }
+
   }
 
   becomeHost() {
     this.submitted = true;
-debugger
-    if(this.hostform.invalid) return;
+
+    if (this.hostform.invalid) return;
 
     let formdata = new FormData;
     formdata.append(`make`, this.hostform.controls['make'].value);

@@ -49,7 +49,7 @@
                                                     </mat-option>
                                                 </mat-autocomplete>
 
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && carModelForm.get('carCompany')?.errors?.['required']">Car
                                                     company name is required</span>
                                             </div>
@@ -58,7 +58,7 @@
                                             <div class="form-field ">
                                                 <label for="" class="d-block">Car Model</label>
                                                 <input formControlName="carModel" type="text" class="d-block">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && carModelForm.get('carModel')?.errors?.['required']">Car
                                                     model is required</span>
                                             </div>

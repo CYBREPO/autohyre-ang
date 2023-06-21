@@ -40,6 +40,7 @@ export class QuotesComponent {
       drop: [''],
       startDate: ['',Validators.required],
       endDate: ['',Validators.required],
+      information: [''],
     });
   }
 
@@ -90,6 +91,7 @@ export class QuotesComponent {
       pickupDate: this.formControl['startDate'].value,
       dropDate: this.formControl['endDate'].value,
       year: this.data?.year?? "",
+      information: this.formControl['information'].value,
       pickupLocation: this.locations != null && this.locations != undefined ? this.locations['pickup']: this.formControl['pickup'].value,
       dropLocation: this.locations != null && this.locations != undefined ? this.locations['drop']: this.formControl['drop'].value,
     }

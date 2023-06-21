@@ -47,12 +47,6 @@
                     (onAddressChange)="handleAddressChange($event,'drop')" formControlName="drop" />
             </div>
 
-            <div class="form-group">
-                <label for="" class="d-block">Additional Information</label>
-                <textarea name="info" id="info" cols="30" rows="10" formControlName="information"></textarea>
-
-            </div>
-
             <div class="form-field mt-3 mb-3">
                 <mat-form-field class="w-100">
                     <mat-label>Enter a date range</mat-label>
@@ -66,6 +60,13 @@
                 <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
                     model is required</span>
             </div>
+
+            <div class="form-group">
+                <label for="" class="d-block">Additional Information</label>
+                <textarea name="info" id="info" class="w-100" formControlName="information" maxlength="100"></textarea>
+
+            </div>
+
 
             <div>
                 <button type="submit" class="btn btn-success" style="margin-right: 10px;">Get Quotes</button>

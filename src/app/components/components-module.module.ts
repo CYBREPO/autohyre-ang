@@ -11,12 +11,13 @@ import {MatSliderModule} from '@angular/material/slider';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { QuotesComponent } from './quotes/quotes.component';
+import { BecomeAHostComponent } from './become-a-host/become-a-host.component';
 
 
 @NgModule({
   declarations: [
     MapComponent, SingleCarDetailsLayoutComponent,
-    SingleCategoryCarDetailsComponent,QuotesComponent
+    SingleCategoryCarDetailsComponent,QuotesComponent,BecomeAHostComponent
   ],
   imports: [
     CommonModule,

@@ -39,7 +39,7 @@ export class TeamsComponent {
       leadersFormArray: this.fb.array([leadForm])
     });
 
-    if (this.data && this.data.leaders) {
+    if (this.data && this.data.leaders?.length > 0) {
       let arr = (this.teamsForm.controls['leadersFormArray'] as FormArray);
       arr.clear();
       this.data.leaders.forEach((m: any) => {
@@ -60,7 +60,7 @@ export class TeamsComponent {
       }));
     }
 
-    if (this.data && this.data.boardOfDirectors) {
+    if (this.data && this.data.boardOfDirectors?.length > 0) {
       let arr = (this.teamsForm.controls['boardFormArray'] as FormArray);
       arr.clear();
       this.data.boardOfDirectors.forEach((m: any) => {

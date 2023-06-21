@@ -49,20 +49,20 @@ export class ManageCarsComponent {
   initForm() {
     this.vehicleForm = this.fb.group({
       id: [''],
-      description: [''],
+      description: ['', [Validators.required]],
       files: [''],
-      brand: [''],
-      model: [''],
-      price: [''],
-      mileage: [''],
-      fuelType: [''],
-      type: [''],
-      fuelUnit: [''],
-      fuelGrade: [''],
-      doors: [''],
-      seats: [''],
-      year: [''],
-      vin: [''],
+      brand: ['', [Validators.required]],
+      model: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      mileage: ['', [Validators.required]],
+      fuelType: ['', [Validators.required]],
+      type: ['', [Validators.required]],
+      fuelUnit: ['', [Validators.required]],
+      fuelGrade: ['', [Validators.required]],
+      doors: ['', [Validators.required]],
+      seats: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      vin: ['', [Validators.required]],
 
 
       ageBook: [false],
@@ -187,6 +187,11 @@ export class ManageCarsComponent {
   }
 
   submit() {
+    this.submitted = true;
+
+    if(this.vehicleForm.invalid)
+      return;
+
     const formData: FormData = new FormData();
     formData.append(`description`, this.formControl['description'].value);
     // formData.append(`id`, "");

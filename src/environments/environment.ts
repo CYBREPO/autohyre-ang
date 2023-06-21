@@ -9,6 +9,7 @@ export const environment = {
   cacheKey: "login",
   encryptionKey: "8080808080808080",
   apiKey: "AIzaSyBG0EEFFVK5H0QIt-32cX32CGuhXWv3rSc"
+  // apiKey: "AIzaSyAlr8Iw9wsuELApTqSxZU0baGXlmMCDJG0"
 };
 
 /*
