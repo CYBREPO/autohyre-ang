@@ -3,94 +3,100 @@
     <div class="seo-pages-azjghx e16c753r0"
         [ngStyle]="{'background-image': this.data?.bannerImg ? 'url('+ domain +  this.data.bannerImg + ')' : ''}">
     </div>
+    <div class="container">
 
-    <div class="seo-pages-12odiic e1u7lfr20">
-        <div class="efavf900 seo-pages-jzu26b e1yh22tr0" data-testid="row">
 
-            <div class="seo-pages-1pkzd0w e76g7ex0">
-                <div class="text-white" [innerHTML]="data?.header">
-                </div>
+        <div class="seo-pages-12odiic e1u7lfr20">
+            <div class="efavf900 seo-pages-jzu26b e1yh22tr0" data-testid="row">
 
-                <!-- <h1 class="seo-pages-1toibrp-StyledText" uid="637c7f58-fbe7-45ab-b7ad-22ecf97c04a5">Meet the team1</h1>
+                <div class="seo-pages-1pkzd0w e76g7ex0">
+                    <div class="text-white" [innerHTML]="data?.header">
+                    </div>
+
+                    <!-- <h1 class="seo-pages-1toibrp-StyledText" uid="637c7f58-fbe7-45ab-b7ad-22ecf97c04a5">Meet the team1</h1>
                
                 <div class="seo-pages-1ue5uyt e16c753r0">
                     
                     <h5 class="seo-pages-1kv227m-StyledText" uid="fbbdde3e-59c6-47e2-a5e9-2902a72bdc93">Get to know the
                         people behind the world's largest peer-to-peer car sharing marketplace.</h5>
                 </div> -->
-            </div>
-        </div>
-
-        <div class="seo-pages-136wc1n e16c753r0">
-
-            <h3 class="seo-pages-1qslx4t-StyledText" uid="a75916b4-59a8-4555-9579-dff9d7a93cde">Leadership</h3>
-        </div>
-
-        <div id="team-grid" class="seo-pages-clqabn e1j7pl790">
-
-            <div class="seo-pages-1tqlkmr e10jor8k2">
-
-                <div class="seo-pages-fynvu-StyledCard e18k58aj9" *ngFor="let lead of data?.leaders">
-
-                    <div class="styledHeadshotWrapper seo-pages-1rzsemh-StyledHeadshotWrapper e18k58aj8">
-
-                        <img alt="Andre Haddad"
-                            src="{{domain + lead.profile}}"
-                            class="e18k58aj7 seo-pages-1e3txu3-StyledImage-StyledHeadshot e3dl1lq0" />
-
-                        <p class="styledHeadshotText e18k58aj6 seo-pages-6c3rzt-StyledText-StyledHeadshotText">
-                            {{lead.description}}</p>
-                    </div>
-
-                    <p class="seo-pages-e6bxgq-StyledText">{{lead.name}}</p>
-
-                    <p class="seo-pages-1obfgsc-StyledText">{{lead.designation}}</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="seo-pages-1xfgq7t e16c753r0">
-            <h3 class="seo-pages-1qslx4t-StyledText" uid="32842d0c-cb0b-4a35-a219-28f611585130">Board of Directors</h3>
-        </div>
-
-        <div class="seo-pages-1s366pa e16c753r0">
-
-            <div class="seo-pages-d15va7 e10jor8k2">
-                <div class="seo-pages-18i2s0a e1j7pl790" *ngFor="let board of data?.boardOfDirectors">
-                    <div class="seo-pages-18i2s0a e1j7pl790">
-                        <h4 class="seo-pages-tfbwun-StyledText" uid="a5903610-cd65-4d92-8b67-778778947f13">
-                            {{board.name}}
-                        </h4>
-                        <p class="seo-pages-bt8xls-StyledText" uid="31b066c1-5fbe-4bb9-92d8-7c41422edc46">
-                            {{board.designation}}</p>
-                        <a class="seo-pages-1ty3hiz-StyledText"
-                            uid="c3189e62-05db-4b47-b9ee-c693cb59df5a">{{board.description}}</a>
-                    </div>
                 </div>
             </div>
-        </div>
 
-        <div type="image" class="seo-pages-1rmbfjd e1c648280">
+            <div class="seo-pages-136wc1n e16c753r0">
 
-            <div class="seo-pages-xi2qma e1j7pl790">
+                <h3 class="seo-pages-1qslx4t-StyledText" uid="a75916b4-59a8-4555-9579-dff9d7a93cde">Leadership</h3>
+            </div>
 
-                <div class="seo-pages-1s83uaf e1vb3c880" direction="column" width="100">
+            <div id="team-grid" class="seo-pages-clqabn e1j7pl790">
 
-                    <div class="seo-pages-1ilfgeg e1vb3c880" direction="column">
+                <div class="seo-pages-1tqlkmr e10jor8k2">
 
-                        <h3 class="seo-pages-vvs2ob-StyledText" uid="e3a79874-9cdc-42f1-b8a1-c4a13d3fc477">Join the team
-                        </h3>
+                    <div class="seo-pages-fynvu-StyledCard e18k58aj9" *ngFor="let lead of data?.leaders">
 
-                        <p class="seo-pages-1pzvdny-StyledText" uid="a659c8fc-3af8-4adb-bfb6-278b16153853">Help put the
-                            world's 1.5 billion cars to better use</p>
+                        <div class="styledHeadshotWrapper seo-pages-1rzsemh-StyledHeadshotWrapper e18k58aj8">
+
+                            <img alt="Andre Haddad" src="{{domain + lead.profile}}"
+                                class="e18k58aj7 seo-pages-1e3txu3-StyledImage-StyledHeadshot e3dl1lq0" />
+
+                            <p class="styledHeadshotText e18k58aj6 seo-pages-6c3rzt-StyledText-StyledHeadshotText">
+                                {{lead.description}}</p>
+                        </div>
+
+                        <p class="seo-pages-e6bxgq-StyledText">{{lead.name}}</p>
+
+                        <p class="seo-pages-1obfgsc-StyledText">{{lead.designation}}</p>
                     </div>
-                    <div class="seo-pages-18i2s0a e1j7pl790">
 
-                        <a href="/us/en/" rel="nofollow" class="seo-pages-1uz1lkt e16l5yh30">See all positions</a>
+                </div>
+            </div>
+
+            <div class="seo-pages-1xfgq7t e16c753r0">
+                <h3 class="seo-pages-1qslx4t-StyledText" uid="32842d0c-cb0b-4a35-a219-28f611585130">Board of Directors
+                </h3>
+            </div>
+
+            <div class="seo-pages-1s366pa e16c753r0">
+
+                <div class="seo-pages-d15va7 e10jor8k2">
+                    <div class="seo-pages-18i2s0a e1j7pl790" *ngFor="let board of data?.boardOfDirectors">
+                        <div class="seo-pages-18i2s0a e1j7pl790">
+                            <h4 class="seo-pages-tfbwun-StyledText" uid="a5903610-cd65-4d92-8b67-778778947f13">
+                                {{board.name}}
+                            </h4>
+                            <p class="seo-pages-bt8xls-StyledText" uid="31b066c1-5fbe-4bb9-92d8-7c41422edc46">
+                                {{board.designation}}</p>
+                            <a class="seo-pages-1ty3hiz-StyledText"
+                                uid="c3189e62-05db-4b47-b9ee-c693cb59df5a">{{board.description}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div type="image" class="seo-pages-1rmbfjd e1c648280">
+
+                <div class="seo-pages-xi2qma e1j7pl790">
+
+                    <div class="seo-pages-1s83uaf e1vb3c880" direction="column" width="100">
+
+                        <div class="seo-pages-1ilfgeg e1vb3c880" direction="column">
+
+                            <h3 class="seo-pages-vvs2ob-StyledText" uid="e3a79874-9cdc-42f1-b8a1-c4a13d3fc477">Join the
+                                team
+                            </h3>
+
+                            <p class="seo-pages-1pzvdny-StyledText" uid="a659c8fc-3af8-4adb-bfb6-278b16153853">Help put
+                                the
+                                world's 1.5 billion cars to better use</p>
+                        </div>
+                        <div class="seo-pages-18i2s0a e1j7pl790">
+
+                            <a href="/us/en/" rel="nofollow" class="seo-pages-1uz1lkt e16l5yh30">See all positions</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

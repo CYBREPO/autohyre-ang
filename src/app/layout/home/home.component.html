@@ -11,9 +11,9 @@
                 </ng-container>
             </div>
             <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''" *ngFor="let img of page?.bannerImages;let i = index">
-                    <img src="{{domain + img}}" class="w-100 d-block"
-                        alt=`slide${i}`>
+                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''"
+                    *ngFor="let img of page?.bannerImages;let i = index">
+                    <img src="{{domain + img}}" class="w-100 d-block" alt=`slide${i}`>
                     <div class="container d-flex h-100 align-items-center">
 
                         <div class="row w-100 ">
@@ -42,8 +42,9 @@
         </div>
     </div>
 </div>
-
-<section class="mt-md-5 browsebymake">
+<div class="container">
+    
+<section class="my-5 browsebymake">
 
     <div class="container">
         <!-- <div class="section-heading text-center mt-md-5">
@@ -54,7 +55,7 @@
         </div> -->
 
         <div [innerHTML]="page?.header" class="section-heading text-center mt-md-5"></div>
-        <b class="fs-4 d-block section-subheading">Browse by Make</b>
+        <b class="fs-4 d-block section-subheading my-5">Browse by Make</b>
 
         <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
 
@@ -127,14 +128,14 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools(2).gif" alt="" width="400px">
+                <img src="../assets/images/output-onlinegiftools(2).gif" alt="" class="w-400px">
             </div>
         </div>
         <div class="row align-items-center justify-content-center">
             <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools.gif" alt="" width="400px" class="movingcar">
+                <img src="../assets/images/output-onlinegiftools.gif" alt="" class="movingcar w-400px">
             </div>
-            <div class="col-md-4 ms-5">
+            <div class="col-md-4 ms-md-5">
                 <div class="text-block">
                     <div class="subheading  fs-3 mb-3">
                         Become a host
@@ -145,3 +146,4 @@
         </div>
     </div>
 </section>
+</div>

@@ -47,7 +47,11 @@ body {
     font-weight: 500;
     font-size: 15px;
 }
-
+section {
+   @media screen and (max-width: 992px) {
+    margin-bottom: 50px !IMPORTANT;
+   }
+}
 
 p {
     font-weight: 400;
@@ -97,21 +101,36 @@ ul {
 .heading {
     font-family: $heading-family;
     font-size: 6em;
+    @media screen and (max-width: 992px) {
+        margin-bottom: 20px !important;
+    }
 }
 
 .subheading {
     font-family: $subheading-family;
     line-height: 1.2;
+    @media screen and (max-width: 992px) {
+        margin-bottom: 20px !important;
+    }
 }
 
 .section-heading {
     font-family: $heading-family;
-    font-size: 4em;
+    font-size: 3em;
+    @media screen and (max-width: 992px) {
+        margin-bottom: 20px !important;
+    }
+    @media screen and (min-width: 992px) {
+        font-size: 4em;
+    }
 }
 
 .section-subheading {
     font-family: $subheading-family;
     font-size: 2em;
+    @media screen and (max-width: 992px) {
+        margin-bottom: 20px !important;
+    }
 }
 
 
@@ -304,6 +323,12 @@ a {
         height: 180px;
         object-fit: cover;
         width: 100%;
+    }
+
+    @media screen and (max-width: 992px) {
+        .section-heading {
+            margin-bottom: 40px;
+        }
     }
 }
 
@@ -627,7 +652,9 @@ $font-family_2: Raleway, Helvetica, sans-serif;
     background-position: 43% center;
     background-repeat: no-repeat;
     background-size: 45%;
-    padding-bottom: 100px;
+    @media screen and (min-width: 992px) {
+        padding-bottom: 100px;
+    }
     margin-bottom: 55px;
 
 }
@@ -786,9 +813,18 @@ app-host {
     background: lightgrey;
     margin-bottom: 0;
 }
+
 .contenter {
     border: 1px solid lightgrey;
     padding: 30px 20px;
     // display: flex;
     align-items: center;
+}
+
+.w-400px {
+    width: 100%;
+
+    @media screen and (min-width: 992px) {
+        max-width: 400px;
+    }
 }
