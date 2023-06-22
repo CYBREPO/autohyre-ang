@@ -11,11 +11,14 @@ import { HttpService } from 'src/app/service/http.service';
 export class ForgotPasswordComponent {
 
   email: any;
+  submitted: boolean = false;
 
   constructor(private httpService: HttpService, private router: Router){}
 
   resetPassword(){
-    this.httpService.httpPost(ApiUrls.account.resetPassword,{email: this.email}).subscribe(res => {});
-    // this.router.navigate(['/account/login']);
+    if(this.email && this.email == null)
+      this.httpService.httpPost(ApiUrls.account.resetPassword,{email: this.email}).subscribe(res => {});
+    else
+      this.submitted = true;
   }
 }

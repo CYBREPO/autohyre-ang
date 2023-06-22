@@ -17,15 +17,17 @@
                         <div class="menuToggle" (click)="hamburgerClick()"></div>
                         <ul class="menu" *ngIf="hamburgerClicked">
 
-                            <li id="userNavbarDropdown-item-0" role="option" aria-selected="false" class="seo-pages-q2fcui e1ihn8vx2 mt-0" *ngIf="!user">
+                            <li id="userNavbarDropdown-item-0" role="option" aria-selected="false"
+                                class="seo-pages-q2fcui e1ihn8vx2 mt-0" *ngIf="!user">
                                 <a [routerLink]="['/account/login']" class="mt-0">
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Log in</span></div>
                                     </div>
                                 </a>
                             </li>
-                            <li id="userNavbarDropdown-item-0" role="option" aria-selected="false" class="seo-pages-q2fcui e1ihn8vx2 mt-0" *ngIf="user" (click)="logout()">
-                                <a  class="mt-0">
+                            <li id="userNavbarDropdown-item-0" role="option" aria-selected="false"
+                                class="seo-pages-q2fcui e1ihn8vx2 mt-0" *ngIf="user" (click)="logout()">
+                                <a class="mt-0">
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Log Out</span></div>
                                     </div>
@@ -37,10 +39,10 @@
                                         <div><span>Sign up</span></div>
                                     </div>
                                 </a></li>
-                            <li id="userNavbarDropdown-item-2" role="option" aria-selected="false" *ngIf="user && !user.isAdmin"
-                                class="seo-pages-q2fcui e1ihn8vx2 d-flex"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24px" height="24px" fill="none" viewBox="0 0 24 24" class="seo-pages-0"
-                                    role="img" version="1.1">
+                            <li id="userNavbarDropdown-item-2" role="option" aria-selected="false"
+                                *ngIf="user && !user.isAdmin" class="seo-pages-q2fcui e1ihn8vx2 d-flex"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none"
+                                    viewBox="0 0 24 24" class="seo-pages-0" role="img" version="1.1">
                                     <path fill="#121214"
                                         d="M18.86 7.3c.1.24.33.38.57.38.09 0 .17-.02.24-.06.32-.14.47-.5.33-.82l-1.42-3.29a2.285 2.285 0 0 0-2.1-1.38H7.51c-.92 0-1.74.54-2.1 1.38L3.99 6.8c-.13.32.02.68.33.82.31.14.68 0 .82-.32l1.42-3.29c.16-.37.54-.62.95-.62h8.98c.41 0 .79.24.95.62l1.42 3.29ZM19.49 13.92a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0ZM6.11 15.52a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2Z">
                                     </path>
@@ -49,8 +51,10 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <div class="seo-pages-94h48-StyledNavbarLinkTitle ms-2 e17kfdq0">
-                                    <div data-bs-toggle="modal" data-bs-target="#modalId"><span>Become a host</span>
+                                    <div routerLink="/cust/host"><span>Become a host</span>
                                     </div>
+                                    <!-- <div data-bs-toggle="modal" data-bs-target="#modalId"><span>Become a host</span>
+                                    </div> -->
                                 </div>
                             </li>
                             <!-- <hr data-testid="navbarDropdown-horizontal-rule" class="seo-pages-1184qmk e1ihn8vx0">
@@ -146,100 +150,218 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
         <form [formGroup]="hostform">
             <div class="modal-content">
-             <div class="container">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">1. Your car</label>
-                                <input formControlName="car" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">2. Profile photo</label>
-                                <input formControlName="Profile" type="file" name="" id=""
-                                    (change)="handleFileInputProfile($event)">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">3. Mobile number</label>
-                                <input formControlName="mobilenumber" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">4. Driver’s license</label>
-                                <input formControlName="license" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">5. Your goals</label>
-                                <input formControlName="goals" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">6. Car availability</label>
-                                <input formControlName="availability" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">7. Car details</label>
-                                <input formControlName="details" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">8. Car photos</label>
-                                <input formControlName="photos" type="file" class="d-block" multiple
-                                    (change)="handleFileInput($event)">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">9. Payout</label>
-                                <input formControlName="payout" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">10. Safety & quality standards</label>
-                                <input formControlName="qualitystandards" type="text" class="d-block">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mt-3 px-2">
-                            <div class="form-field ">
-                                <label for="" class="d-block">11. Submit your listing</label>
-                                <input formControlName="submityourlisting" type="text" class="d-block">
-                            </div>
-                        </div>
+                <div class="container">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body">
 
+                        <div class="row">
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Car Make</label>
+                                    <input formControlName="make" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('make')?.errors?.['required']">Car Make is
+                                        required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Model</label>
+                                    <input formControlName="model" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('model')?.errors?.['required']">Car Model is
+                                        required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">VIN</label>
+                                    <input formControlName="vin" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('movindel')?.errors?.['required']">VIN is
+                                        required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Year</label>
+                                    <input formControlName="year" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('year')?.errors?.['required']">Year is
+                                        required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Owner Name</label>
+                                    <input formControlName="ownerName" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('ownerName')?.errors?.['required']">Owner
+                                        Name is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Owner Mobile</label>
+                                    <input formControlName="ownerMobile" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('ownerMobile')?.errors?.['required']">Owner
+                                        mobile is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Owner Profile photo</label>
+                                    <input formControlName="ownerProfile" type="file" name="" id=""
+                                        (change)="handleFileInputProfile($event,'ownerProfile')">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('ownerProfile')?.errors?.['required']">Owner
+                                        mobile is required</span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Driver’s Name</label>
+                                    <input formControlName="driverName" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('driverName')?.errors?.['required']">Driver’s
+                                        Name is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Driver’s license</label>
+                                    <input formControlName="drivingLicense" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('drivingLicense')?.errors?.['required']">Driver’s
+                                        license is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Driver’s Mobile</label>
+                                    <input formControlName="driverMobile" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('driverMobile')?.errors?.['required']">Driver’s
+                                        Mobile is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Driver’s Profile photo</label>
+                                    <input formControlName="driverProfile" type="file" name="" id=""
+                                        (change)="handleFileInputProfile($event,'driverProfile')">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Your goals</label>
+                                    <input formControlName="goals" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('goals')?.errors?.['required']">Your goals
+                                        is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Car availability</label>
+                                    <input formControlName="carAvailability" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('carAvailability')?.errors?.['required']">Car
+                                        availability is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Car photos</label>
+                                    <input formControlName="photos" type="file" class="d-block" multiple
+                                        (change)="handleFileInput($event)">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Bank Name</label>
+                                    <input formControlName="bankName" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('bankName')?.errors?.['required']">Bank Name
+                                        is required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Account Name</label>
+                                    <input formControlName="accountName" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('accountName')?.errors?.['required']">Account
+                                        Name is required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Account Number</label>
+                                    <input formControlName="accountNumber" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('accountNumber')?.errors?.['required']">Account
+                                        Number is required</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mt-3 px-2">
+                                <div class="form-field ">
+                                    <label for="" class="d-block">Safety & quality standards</label>
+                                    <input formControlName="safetyQuantity" type="text" class="d-block">
+                                    <span class="text-danger d-block mt-2"
+                                        *ngIf="submitted && hostform.get('safetyQuantity')?.errors?.['required']">Safety
+                                        & quality standards is required</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="d-flex col-md-3 mb-3">
+                                    <label for="" class="mr-3">Air Bags</label><input class="" type="checkbox"
+                                        name="airBags" id="airBags" formControlName="airBags">
+                                </div>
+                                <div class="d-flex col-md-3 mb-3">
+                                    <label for="" class="mr-3">Fire Extinguisher</label><input class="" type="checkbox"
+                                        name="fireExtinguisher" id="fireExtinguisher" formControlName="fireExtinguisher">
+                                </div>
+                                <div class="d-flex col-md-3 mb-3">
+                                    <label for="" class="mr-3">C-Caution</label><input class="" type="checkbox"
+                                        name="cCaution" id="cCaution" formControlName="cCaution">
+                                </div>
+                                <div class="d-flex col-md-3 mb-3">
+                                    <label for="" class="mr-3">Umbrellas (latest 2)</label><input class="" type="checkbox"
+                                        name="umbrella" id="umbrella" formControlName="umbrella">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" (click)="becomeHost()">Submit</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" (click)="becomeHost()">Submit</button>
-                </div>
-             </div>
             </div>
         </form>
     </div>

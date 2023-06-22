@@ -22,6 +22,15 @@
         <button type="submit" class="btn btn-secondary">submit</button>
     </form>
 
+    <!--MAP starts-->
+    <google-map [options]="mapOptions">
+        <map-marker [position]="marker.position"></map-marker>
+     </google-map> 
+
+   <input class="form-control" ngx-google-places-autocomplete [options]="options"
+        (onAddressChange)="handleAddressChange($event)" />
+    <!--Map ends-->
+
     <div *ngIf="vehicleModels">
         <div class="row">
             <ng-container *ngFor="let vehicleModel of vehicleModels">

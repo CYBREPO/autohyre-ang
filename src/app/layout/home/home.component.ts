@@ -21,19 +21,12 @@ export class HomeComponent {
   page: any;
   domain: string = environment.url;
 
-  constructor(private router: Router, private datatransferService: DataTransferService,
-    private httpservice: HttpService,private loader: LoaderService, private modal: ModalDialogService) { }
+  constructor(private router: Router,private httpservice: HttpService) { }
 
   ngOnInit() {
     this.locations = locations.locations;
     this.getHomePage();
     this.getBrands();
-
-    // this.loader.display(true);
-
-    // this.modal.success("jshfkjhdsflksdfkds");
-    // this.loader.display(false);
-
 
   }
 
@@ -55,7 +48,7 @@ export class HomeComponent {
 
 
   parentEventHandlerFunction(event: any) {
-    this.router.navigate(['/cust/carcategory', event.name]);
+    this.router.navigate(['/cust/carcategory' ],{ queryParams: { make: event.name }});
   }
 
   locationEvent(event: any) {

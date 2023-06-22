@@ -45,7 +45,7 @@
                                             <div class="form-field ">
                                                 <label for="" class="d-block">Car Company Name</label>
                                                 <input formControlName="carCompany" type="text" class="d-block">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && carCompanyForm.get('carCompany')?.errors?.['required']">Car
                                                     company name is required</span>
                                             </div>
@@ -56,6 +56,8 @@
                                                 <label for="" class="d-block">Car photo</label>
                                                 <input formControlName="Profile" type="file" name="carPhoto"
                                                     id="carPhoto" (change)="handleFileInputProfile($event)">
+                                                <span class="text-danger d-block mt-2"
+                                                    *ngIf="submitted && !file">Car Photo is required</span>
                                             </div>
                                         </div>
 

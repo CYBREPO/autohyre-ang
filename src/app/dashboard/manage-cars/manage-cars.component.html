@@ -46,7 +46,7 @@
                                                         {{cmp.name}}
                                                     </option>
                                                 </select>
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('brand')?.errors?.['required']">Car
                                                     company name is required</span>
                                             </div>
@@ -62,7 +62,7 @@
                                                     <option value="ninivans">Minivans</option>
                                                     <option value="van">van</option>
                                                 </select>
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('type')?.errors?.['required']">Car
                                                     type is required</span>
                                             </div>
@@ -76,9 +76,19 @@
                                                         {{item.name}}
                                                     </option>
                                                 </select>
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
                                                     model is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 mt-3 px-1">
+                                            <div class="form-field ">
+                                                <label for="" class="d-block">VIN</label>
+                                                <input class="form-control" type="text" name="vin" id="vin"
+                                                    formControlName="vin">
+                                                <span class="text-danger d-block mt-2"
+                                                    *ngIf="submitted && vehicleForm.get('vin')?.errors?.['required']">VIN
+                                                    is required</span>
                                             </div>
                                         </div>
                                         <div class="col-2 mt-3 px-1">
@@ -86,7 +96,7 @@
                                                 <label for="" class="d-block">Price</label>
                                                 <input class="form-control" type="number" name="price" id="price"
                                                     formControlName="price">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('price')?.errors?.['required']">Price
                                                     is
                                                     required</span>
@@ -97,7 +107,7 @@
                                                 <label for="" class="d-block">Number of Doors</label>
                                                 <input class="form-control" type="number" name="doors" id="doors"
                                                     formControlName="doors">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('doors')?.errors?.['required']">No
                                                     of
                                                     doors is
@@ -109,7 +119,7 @@
                                                 <label for="" class="d-block">Number of Seats</label>
                                                 <input class="form-control" type="number" name="seats" id="seats"
                                                     formControlName="seats">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('seats')?.errors?.['required']">No
                                                     of
                                                     seats is
@@ -121,7 +131,7 @@
                                                 <label for="" class="d-block">Mileage</label>
                                                 <input class="form-control" type="number" name="mileage" id="mileage"
                                                     formControlName="mileage">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('mileage')?.errors?.['required']">Mileage
                                                     is
                                                     required</span>
@@ -135,7 +145,7 @@
                                                     <option *ngFor="let unt of fuel" [value]="unt.unit">{{unt.label}}
                                                     </option>
                                                 </select>
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Mileage
                                                     Unit is required</span>
                                             </div>
@@ -145,8 +155,8 @@
                                                 <label for="" class="d-block">Fuel Grade</label>
                                                 <input class="form-control" type="text" name="fuelGrade" id="fuelGrade"
                                                     formControlName="fuelGrade">
-                                                <span
-                                                    *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Fuel
+                                                <span class="text-danger d-block mt-2"
+                                                    *ngIf="submitted && vehicleForm.get('fuelGrade')?.errors?.['required']">Fuel
                                                     Grade
                                                     is required</span>
                                             </div>
@@ -160,7 +170,7 @@
                                                         {{fuel.value}}
                                                     </option>
                                                 </select>
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('fuelType')?.errors?.['required']">Fuel
                                                     Type
                                                     is required</span>
@@ -171,13 +181,25 @@
                                                 <label for="" class="d-block">Year</label>
                                                 <input class="form-control" type="number" name="year" id="year"
                                                     formControlName="year">
-                                                <span
+                                                <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year
                                                     is
                                                     required</span>
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-2 mt-3 px-1">
+                                            <div class="form-field ">
+                                                <label for="" class="d-block">Location</label>
+                                                <input class="form-control" ngx-google-places-autocomplete #placesRef="ngx-places"
+                                                    [options]="options"
+                                                    (onAddressChange)="handleAddressChange($event)" />
+                                                <span class="text-danger d-block mt-2"
+                                                    *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Location
+                                                    is
+                                                    required</span>
+                                            </div>
+                                        </div>
+
 
 
                                     </div>
@@ -198,7 +220,7 @@
                                                 <label for="description" class="d-block">Description</label>
                                                 <textarea class="form-control" type="text" formControlName="description"
                                                     name="description" id="description"></textarea>
-                                                <!-- <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span> -->
+                                                <span class="text-danger d-block mt-2" *ngIf="submitted && vehicleForm.get('description')?.errors?.['required']">Year is required</span>
                                             </div>
                                         </div>
                                     </div>

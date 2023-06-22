@@ -6,14 +6,14 @@
             data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <ng-container *ngFor="let img of page?.bannerImages; let i= index">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=`${i}`
-                        aria-current="true" aria-label=`slide${i}`></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
+                        [attr.aria-current]="i == 0 ? true: false" [attr.aria-label]="'slide' + i"></button>
                 </ng-container>
             </div>
             <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100" [ngClass]="i==0 ? 'active' : ''"
+                <div class="carousel-item h-100" [ngClass]="i == 0 ? 'active' : ''"
                     *ngFor="let img of page?.bannerImages;let i = index">
-                    <img src="{{domain + img}}" class="w-100 d-block" alt=`slide${i}`>
+                    <img src="{{domain + img}}" class="w-100 d-block" [attr.alt]="'slide' + i">
                     <div class="container d-flex h-100 align-items-center">
 
                         <div class="row w-100 ">
@@ -141,6 +141,9 @@
                         Become a host
                     </div>
                     <p>Car hire is worthwhile for extra freedom with time and destinations</p>
+                    <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/host']" role="button">
+                        Become a host
+                    </a>
                 </div>
             </div>
         </div>

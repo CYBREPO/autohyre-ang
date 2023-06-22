@@ -10,15 +10,18 @@ import { CkEditorComponent } from './ck-editor/ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AlertComponent } from './alert/alert.component';
 import { HostDetailsComponent } from './host-details/host-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 @NgModule({
   declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,AlertComponent,
     HostDetailsComponent],
   imports: [
-    CommonModule, MaterialModuleModule, ReactiveFormsModule,CKEditorModule
+    CommonModule, MaterialModuleModule, ReactiveFormsModule,CKEditorModule,
+    GoogleMapsModule,GooglePlaceModule,
   ],
   entryComponents: [AlertComponent],
   exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,
-    CKEditorModule,AlertComponent,HostDetailsComponent]
+    CKEditorModule,AlertComponent,HostDetailsComponent,GoogleMapsModule,GooglePlaceModule,]
 })
 export class SharedModuleModule { }

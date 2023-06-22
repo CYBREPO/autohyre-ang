@@ -71,6 +71,8 @@ class teams{
     public static saveTeams = "teams/saveTeams";
     public static updateTeams = "teams/updateTeams";
     public static getTeams = "teams/getTeams";
+    public static deleteTeamMember = "teams/deleteTeamMember";
+    public static addUpdateTeamMember = "teams/addUpdateTeamMember";
 
 }
 

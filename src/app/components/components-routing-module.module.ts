@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SingleCarDetailsLayoutComponent } from './single-car-details-layout/single-car-details-layout.component';
 import { SingleCategoryCarDetailsComponent } from './single-category-car-details/single-category-car-details.component';
 import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
+import { BecomeAHostComponent } from './become-a-host/become-a-host.component';
 
 const routes = [
   {path: "",component: CustomerLayoutComponent,children: [
@@ -13,7 +14,8 @@ const routes = [
     {path: "cardetails", component: SingleCarDetailsLayoutComponent},
     {path: "cardetails/:id", component: SingleCarDetailsLayoutComponent},
     {path: "carcategory", component: SingleCategoryCarDetailsComponent},
-    {path: "carcategory/:make", component: SingleCategoryCarDetailsComponent},
+    {path: "host", component: BecomeAHostComponent},
+    // {path: "carcategory/:make/:type", component: SingleCategoryCarDetailsComponent},
   ]}
 ]
 
