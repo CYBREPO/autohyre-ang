@@ -122,6 +122,7 @@ export class BecomeAHostComponent {
     formdata.append(`fireExtinguisher`, this.hostform.controls['fireExtinguisher'].value);
     formdata.append(`cCaution`, this.hostform.controls['cCaution'].value);
     formdata.append(`umbrella`, this.hostform.controls['umbrella'].value);
+    formdata.append(`sameDriver`, this.hostform.controls['sameDriver'].value);
 
     for (let i = 0; i < this.carFiles.length; i++) {
       formdata.append(`carPhotos`, this.carFiles[i]);

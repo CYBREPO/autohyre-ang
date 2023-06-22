@@ -3,8 +3,6 @@
         <ol class="carousel-indicators" *ngFor="let img of this.cardetails.images;let i = index">
             <li data-bs-target="#carouselId" data-bs-slide-to=`${i}`  aria-current="true"
                 aria-label=`slide${i}`></li>
-            <!-- <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-            <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li> -->
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active" *ngFor="let img of this.cardetails.images;let i = index">
@@ -23,6 +21,17 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<!-- <div id="carouselId" class="carousel slide bg-image shadow-1-strong" >
+    <owl-carousel-o [options]="customHomeOptions" *ngIf="cardetails">
+        <ng-container *ngFor="let img of this.cardetails.images;let i = index">
+            <ng-template class="slide" carouselSlide [id]="'side' + i">
+                <img src="{{domain + img}}" [alt]="'side' + i" [title]="'side' + i">
+            </ng-template>
+        </ng-container>
+
+    </owl-carousel-o>
+</div> -->
+
 <div class="details">
     <div class="w-75 mx-auto">
         <div class="container">

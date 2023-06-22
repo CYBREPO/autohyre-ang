@@ -14,6 +14,7 @@
 <div class="overlay" *ngIf="showLoader">
     <mat-spinner style="position: fixed; top:50%; left: 50%;" diameter="45" color="warn"></mat-spinner>
 </div>
+<app-alert></app-alert>
 <!-- <app-header *ngIf="router.url != '/dashboard'"></app-header> -->
 <router-outlet></router-outlet>
 <!-- <app-footer *ngIf="router.url != '/dashboard'"></app-footer> -->

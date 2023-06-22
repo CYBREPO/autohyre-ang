@@ -24,7 +24,6 @@ export class ResetPasswordComponent {
   constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private encryptionService: EncryptionService,
     private modalDialogService: ModalDialogService, private router: Router, private httpService: HttpService) {
     activatedRoute.params.subscribe((params) => {
-      debugger
       let encId = params["id"];
       let dt = params["date"];
       this.decrypUserId = this.encryptionService.decrypt(encId);

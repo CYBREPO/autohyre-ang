@@ -10,6 +10,8 @@ import { UserInfoService } from 'src/app/service/user-info.service';
 import { CkEditorComponent } from 'src/app/shared/ck-editor/ck-editor.component';
 import { QuotesComponent } from '../quotes/quotes.component';
 import { environment } from 'src/environments/environment';
+import { Carousel } from 'src/app/constants/constant';
+
 
 @Component({
   selector: 'app-single-car-details-layout',
@@ -24,6 +26,7 @@ export class SingleCarDetailsLayoutComponent {
   dateRange: any;
   user: IUser;
   vehicleId: string;
+  customHomeOptions = Carousel.customHomeOptions;
 
   constructor(private router: Router, private datatransferService: DataTransferService, private httpService: HttpService,
     private userInfoService: UserInfoService, private modalDialogService: ModalDialogService,

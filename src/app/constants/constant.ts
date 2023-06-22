@@ -1,3 +1,5 @@
+import { OwlOptions } from "ngx-owl-carousel-o";
+
 export class locations {
    public static locations: Array<{ name: string, image: string, modalIds: Array<number> }> = [
       {
@@ -117,5 +119,42 @@ export class GridColumnDataType {
 export class GridActionType {
    public static BUTTON = "BUTTON";
    public static ICON = "ICON";
+}
+
+export class Carousel {
+   public static customOptions: OwlOptions = {
+      loop: true,
+      mouseDrag: false,
+      touchDrag: false,
+      pullDrag: false,
+      dots: false,
+      navSpeed: 700,
+      navText: ['', ''],
+      responsive: {
+        0: {
+          items: 1
+        },
+        400: {
+          items: 2
+        },
+        740: {
+          items: 3
+        },
+        940: {
+          items: 4
+        }
+      },
+      nav: true
+    }
+    public static customHomeOptions: OwlOptions = {
+      loop: true,
+      autoplay: true,
+      center: true,
+      dots: false,
+      autoHeight: true,
+      autoWidth: true,
+      // nav:true,
+      navText: ['next','prev'],
+    }
 }
 

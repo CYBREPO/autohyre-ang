@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpApiInterceptor } from './helper/httpInterceptor';
 import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
 import { MaterialModuleModule } from './shared/material-module.module';
+import { SharedModuleModule } from './shared/shared-module.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { MaterialModuleModule } from './shared/material-module.module';
     LayoutModuleModule,
     HttpClientModule,
     MaterialModuleModule,
+    SharedModuleModule
 
   ],
   providers: [

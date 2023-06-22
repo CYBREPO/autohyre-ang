@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as crypto from "crypto-js";
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { ICacheContent } from 'src/app/interface/cacheInterface';
 import { CacheService } from 'src/app/service/cache.service';
@@ -10,6 +9,7 @@ import { HttpService } from 'src/app/service/http.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 import { UserInfoService } from 'src/app/service/user-info.service';
 import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -26,7 +26,8 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private cacheService: CacheService,
     private encryptionService: EncryptionService, private modalDialogService: ModalDialogService,
-    private userInfoService: UserInfoService, private router: Router, public activatedRoute: ActivatedRoute) { }
+    private userInfoService: UserInfoService, private router: Router, public activatedRoute: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
     this.initForm()
@@ -88,5 +89,9 @@ export class LoginComponent {
           });
       }
     });
+  }
+
+  back(){
+    this.location.back();
   }
 }

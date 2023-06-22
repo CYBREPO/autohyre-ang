@@ -75,7 +75,6 @@ export class HeaderComponent implements OnInit {
 
   becomeHost() {
     this.submitted = true;
-debugger
     if(this.hostform.invalid) return;
 
     let formdata = new FormData;

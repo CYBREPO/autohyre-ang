@@ -28,7 +28,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 this.loaderService.display(false);
             }
             else if (err.status === 400 && err.error.Message != "" && err.error.Message != null && err.error != null) {
-                this.modalDialogService.error(err.error.Message);
+                // this.modalDialogService.error(err.error.Message);
                 this.loaderService.display(false);
             }
             else if (err.status === 406) {

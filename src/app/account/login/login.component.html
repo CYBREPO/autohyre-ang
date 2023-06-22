@@ -36,7 +36,8 @@
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p *ngIf="!this.activatedRoute.snapshot.queryParams['returnUrl']">Not a member? <a routerLink="/account/register">Register</a></p>
+    <p *ngIf="!this.activatedRoute.snapshot.queryParams['returnUrl'] || !this.activatedRoute.snapshot.queryParams['returnUrl'].includes('admin')">Not a member? <a routerLink="/account/register">Register</a></p>
+    <p ><a (click)="back()">Back</a></p>
     <!-- <p>or sign up with:</p>
     <button type="button" class="btn btn-link btn-floating mx-1">
       <i class="fab fa-facebook-f"></i>

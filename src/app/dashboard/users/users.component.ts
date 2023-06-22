@@ -127,7 +127,6 @@ export class UsersComponent {
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      debugger
       if(res){
         this.getAllUsers();
       }

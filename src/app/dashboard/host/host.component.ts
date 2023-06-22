@@ -34,9 +34,11 @@ export class HostComponent {
   setColums() {
     this.columns = [
       { title: 'User', dataField: 'userName', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      { title: 'Car', dataField: 'car', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      { title: 'Driving License', dataField: 'drivingLicense', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      { title: 'Mobile', dataField: 'mobile', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Maker', dataField: 'make', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Model', dataField: 'model', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Year', dataField: 'year', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      // { title: 'Driving License', dataField: 'dirverDetails["drivingLicense"]', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Mobile', dataField: 'ownerMobile', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       { title: 'Status', dataField: 'status', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
