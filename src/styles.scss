@@ -828,3 +828,6 @@ app-host {
         max-width: 400px;
     }
 }
+.pac-container {
+    z-index: 10000 !important;
+}
