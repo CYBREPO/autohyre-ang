@@ -26,9 +26,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userInfoService.getLoggedInUser()
     this.initForm();
-    if(this.user == null || this.user == undefined){
-      this.logout();
-    }
+    
   }
 
 
