@@ -23,6 +23,7 @@ export class MapComponent {
   vehicleModels: any;
   cardetails: any;
   searchedLocation: string = '';
+  selectedLocation: string = '';
   priceSort: price[] = [
     { value: 'low-to-high-0', viewValue: 'Price: low to high' },
     { value: 'high-to-low-1', viewValue: 'Price: high to low' },
@@ -39,6 +40,8 @@ export class MapComponent {
   marker = {
     position: { lat: 38.9987208, lng: -77.2538699 },
   }
+  markers: Array<any> = [];
+
 
   options: any = {
     componentRestrictions: { country: 'NGA' }
@@ -58,7 +61,7 @@ export class MapComponent {
     this.initform();
     this.getLocationWiseData();
     this.getAllCompanies();
-    // let selectedLocation = this.datatransferService.getData();
+    this.selectedLocation = this.datatransferService.getData();
     // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
   }
 
@@ -74,27 +77,42 @@ export class MapComponent {
   get frmCrtl() { return this.filterForm.controls }
 
   getLocationWiseData() {
-    if (this.searchedLocation == "") {
-      let param = {
-        priceSort: this.frmCrtl['priceSort'].value,
-        price: this.frmCrtl['price'].value,
-        make: this.frmCrtl['make'].value,
-        type: this.frmCrtl['type'].value
-      }
-      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
-        if (res['success'])
-          this.vehicleModels = res['data'];
-      });
+    let param = {
+      priceSort: this.frmCrtl['priceSort'].value,
+      price: this.frmCrtl['price'].value,
+      make: this.frmCrtl['make'].value,
+      type: this.frmCrtl['type'].value,
+      location: {}
+    }
+
+    if (this.selectedLocation) {
+      param['location'] = this.selectedLocation
     }
     else {
-      let param = {
-        address: this.searchedLocation
+      param['location'] = {
+        state: this.searchedLocation
       }
-
-      this.httpService.httpGet(ApiUrls.location.getLocationVechile, param).subscribe(res => {
-        this.vehicleModels = res;
-      });
     }
+
+    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
+      if (res['success'])
+        this.vehicleModels = res['data'];
+      this.vehicleModels((veh: any) => {
+        this.markers.push({
+          position: {
+            lat: veh.location?.latitude,
+            lng: veh.location?.longitude,
+          },
+          label: {
+            color: 'red',
+            text: '₦' + veh.price,
+          },
+          title: '₦ ' + veh.price,
+          options: { animation: google.maps.Animation.BOUNCE },
+        });
+      })
+
+    });
 
   }
 

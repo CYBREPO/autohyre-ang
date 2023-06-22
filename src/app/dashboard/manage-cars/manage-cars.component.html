@@ -190,13 +190,13 @@
                                         <div class="col-2 mt-3 px-1">
                                             <div class="form-field ">
                                                 <label for="" class="d-block">Location</label>
-                                                <input class="form-control" ngx-google-places-autocomplete #placesRef="ngx-places"
+                                                <input class="form-control" ngx-google-places-autocomplete 
                                                     [options]="options"
                                                     (onAddressChange)="handleAddressChange($event)" />
-                                                <span class="text-danger d-block mt-2"
+                                                <!-- <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Location
                                                     is
-                                                    required</span>
+                                                    required</span> -->
                                             </div>
                                         </div>
 

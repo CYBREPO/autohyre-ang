@@ -24,7 +24,11 @@
 
     <!--MAP starts-->
     <google-map [options]="mapOptions">
-        <map-marker [position]="marker.position"></map-marker>
+        <map-marker *ngFor="let marker of markers"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"></map-marker>
      </google-map> 
 
    <input class="form-control" ngx-google-places-autocomplete [options]="options"

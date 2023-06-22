@@ -68,8 +68,8 @@ export class SearchBarComponent implements OnInit {
     let val = this.searchForm.controls['location'].value;
     if (val != "" && val != null && val != undefined) {
       // let selectedLocation = this.locations.find(m => m.title == this.searchForm.controls['location'].value);
-      // this.datatransferService.setData(selectedLocation);
-      // this.router.navigate(['cust/map',selectedLocation.title]);
+      this.datatransferService.setData(this.selectedLoc);
+      this.router.navigate(['cust/map',this.selectedLoc.state]);
     }
 
   }
@@ -98,7 +98,7 @@ export class SearchBarComponent implements OnInit {
     this.selectedLoc.longitude = address.geometry.location.lng();
     this.selectedLoc.timeZone = address.utc_offset?.toString();
 
-    console.log(address);
+    // console.log(address);
   }
 
 }

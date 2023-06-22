@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
+import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 
 @Component({
   selector: 'app-teams-dashboard',
@@ -16,7 +17,8 @@ export class TeamsComponent {
   teamsForm: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<TeamsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private httpService: HttpService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private httpService: HttpService,
+    private modalDialogService: ModalDialogService) {
   }
 
   ngOnInit() {
@@ -103,18 +105,30 @@ export class TeamsComponent {
   }
 
   deleteRow(type: string, index: number) {
-    let arr = (this.teamsForm.controls[type] as FormArray);
-    let fb = (arr.controls[index] as FormGroup).controls;
-    if (fb['id'].value && fb['id'].value != '') {
-      this.httpService.httpGet(ApiUrls.teams.deleteTeamMember + "?id=" + fb['id'].value, null).subscribe((res: any) => {
-        if (res['success']) {
+    const dialogRef = this.modalDialogService.openDialog({
+      title: "Delete Vehicle",
+      message: "Are you sure you want to delete this Vehicle!",
+      buttons: [
+        { title: "YES", result: "YES", class: "btn-success" },
+        { title: "NO", result: "NO", class: "btn-danger" },
+      ]
+    })
+    dialogRef.subscribe(resp => {
+      if (resp == "YES") {
+        let arr = (this.teamsForm.controls[type] as FormArray);
+        let fb = (arr.controls[index] as FormGroup).controls;
+        if (fb['id'].value && fb['id'].value != '') {
+          this.httpService.httpGet(ApiUrls.teams.deleteTeamMember + "?id=" + fb['id'].value, null).subscribe((res: any) => {
+            if (res['success']) {
+              arr.removeAt(index);
+            }
+          });
+        }
+        else {
           arr.removeAt(index);
         }
-      });
-    }
-    else {
-      arr.removeAt(index);
-    }
+      }
+    });
 
   }
 
@@ -128,7 +142,7 @@ export class TeamsComponent {
     formData.append(`description`, fb['description'].value);
     formData.append(`profile`, fb['profile'].value);
     formData.append(`title`, type == 'leadersFormArray' ? 'leaders' : 'boardOfDirectors');
-    if(fb['id'].value && fb['id'].value != "") 
+    if (fb['id'].value && fb['id'].value != "")
       formData.append(`id`, fb['id'].value);
 
     this.httpService.httpPostFormData(ApiUrls.teams.addUpdateTeamMember, formData).subscribe((res: any) => {

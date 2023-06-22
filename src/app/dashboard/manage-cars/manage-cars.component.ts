@@ -5,6 +5,7 @@ import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { Options } from 'ngx-google-places-autocomplete/objects/options/options';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination, fuel } from 'src/app/constants/constant';
+import { ILocation } from 'src/app/interface/locationInterface';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 
@@ -33,13 +34,29 @@ export class ManageCarsComponent {
   submitted: boolean = false;
   isLoading: boolean = false;
   searchText: string = "";
+  selectedLoc: ILocation = {
+    "address": "",
+    "addressLines": [""],
+    "city": "",
+    "country": "",
+    "latitude": 0,
+    "locationSource": "",
+    "longitude": 0,
+    "precision": {
+      "accuracy": 0,
+      "level": ""
+    },
+    "state": "",
+    "timeZone": "",
+    "postalCode": ""
+  };
   options: any = {
     types: ['address'],
-    componentRestrictions: { country: ['ca', 'us'] }
+    componentRestrictions: { country: 'NGA' }
 
   } as unknown as Options;
 
-  @ViewChild("placesRef") placesRef!: GooglePlaceDirective;
+  // @ViewChild("placesRef") placesRef!: GooglePlaceDirective;
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -127,10 +144,30 @@ export class ManageCarsComponent {
   }
 
   handleAddressChange(address: Address) {
-    debugger
-    console.log(address.formatted_address)
-    console.log(address.geometry.location.lat())
-    console.log(address.geometry.location.lng())
+    // this.selectedLoc = address;
+    address.address_components.forEach(loc => {
+      const type = loc.types[0];
+      if (type?.toLowerCase() == 'locality') {
+        this.selectedLoc.city = loc.long_name;
+      }
+      if (type?.toLowerCase() == 'administrative_area_level_1') {
+        this.selectedLoc.state = loc.long_name;
+      }
+      if(type?.toLowerCase() == 'administrative_area_level_2'){
+
+      }
+      if(type?.toLowerCase() == 'country'){
+        this.selectedLoc.country = loc.long_name;
+      }
+      if(type?.toLowerCase() == 'postal_code'){
+        this.selectedLoc.postalCode = loc.long_name;
+      }
+    });
+    this.selectedLoc.latitude = address.geometry.location.lat();
+    this.selectedLoc.longitude = address.geometry.location.lng();
+    this.selectedLoc.timeZone = address.utc_offset?.toString();
+
+    // console.log(address);
   }
 
   getAllCompanies() {
@@ -251,6 +288,7 @@ export class ManageCarsComponent {
     formData.append(`tollPass`, this.formControl['tollPass'].value ?? false);
     formData.append(`usbCharger`, this.formControl['usbCharger'].value ?? false);
     formData.append(`usbInput`, this.formControl['usbInput'].value ?? false);
+    formData.append(`location`, JSON.stringify(this.selectedLoc));
 
 
     for (let i = 0; i < this.fileData?.length; i++) {
