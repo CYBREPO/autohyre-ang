@@ -1,33 +1,33 @@
 export class locations {
-   public static locations: Array<{ title: string, img: string, modalIds: Array<number> }> = [
+   public static locations: Array<{ name: string, image: string, modalIds: Array<number> }> = [
       {
-         title: 'Lagos',
-         img: '../assets/images/Lagos.jpeg',
+         name: 'Lagos',
+         image: '../assets/images/Lagos.jpeg',
          modalIds: [1, 3, 4]
       },
       {
-         title: 'Abuja',
-         img: '../assets/images/Abuja.jpeg',
+         name: 'Abuja',
+         image: '../assets/images/Abuja.jpeg',
          modalIds: [1, 3, 4]
       },
       {
-         title: 'Port Harcourt',
-         img: '../assets/images/Portharcourt.jpeg',
+         name: 'Port Harcourt',
+         image: '../assets/images/Portharcourt.jpeg',
          modalIds: [1, 2, 3, 4]
       },
       {
-         title: 'Kano',
-         img: '../assets/images/kano.jpeg',
+         name: 'Kano',
+         image: '../assets/images/kano.jpeg',
          modalIds: [3, 4]
       },
       {
-         title: 'Kaduna',
-         img: '../assets/images/Kaduna.jpeg',
+         name: 'Kaduna',
+         image: '../assets/images/Kaduna.jpeg',
          modalIds: [1]
       },
       {
-         title: 'Edo',
-         img: '../assets/images/Edo.jpeg',
+         name: 'Edo',
+         image: '../assets/images/Edo.jpeg',
          modalIds: [1, 2]
       },
    ];

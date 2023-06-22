@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { locations, vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
@@ -20,6 +21,41 @@ export class HomeComponent {
   locations = locations.locations;
   page: any;
   domain: string = environment.url;
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
+  customHomeOptions: OwlOptions = {
+    loop: true,
+    autoplay: true,
+    center: true,
+    dots: false,
+    autoHeight: true,
+    autoWidth: true,
+    nav:true,
+    navText: ['next','prev'],
+  }
+
 
   constructor(private router: Router,private httpservice: HttpService) { }
 
@@ -42,6 +78,7 @@ export class HomeComponent {
     this.httpservice.httpPost(ApiUrls.brand.getAllBrands, null).subscribe((res: any) => {
       if (res['success']) {
         this.vehicleModels = res['data'];
+        this.vehicleModels.forEach((m: any) => {m.image = environment.url + m.image})
       }
     });
   }
@@ -52,6 +89,6 @@ export class HomeComponent {
   }
 
   locationEvent(event: any) {
-    this.router.navigate(['/cust/map', event.title]);
+    this.router.navigate(['/cust/map', event.name]);
   }
 }

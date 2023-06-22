@@ -37,9 +37,9 @@ export class MapComponent {
     center: { lat: 38.9987208, lng: -77.2538699 },
     zoom: 14
   }
-  marker = {
-    position: { lat: 38.9987208, lng: -77.2538699 },
-  }
+  // marker = {
+  //   position: { lat: 38.9987208, lng: -77.2538699 },
+  // }
   markers: Array<any> = [];
 
 
@@ -59,9 +59,9 @@ export class MapComponent {
 
   ngOnInit() {
     this.initform();
+    this.selectedLocation = this.datatransferService.getData();
     this.getLocationWiseData();
     this.getAllCompanies();
-    this.selectedLocation = this.datatransferService.getData();
     // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
   }
 
@@ -97,7 +97,7 @@ export class MapComponent {
     this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
       if (res['success'])
         this.vehicleModels = res['data'];
-      this.vehicleModels((veh: any) => {
+      this.vehicleModels.forEach((veh: any) => {
         this.markers.push({
           position: {
             lat: veh.location?.latitude,
@@ -110,7 +110,12 @@ export class MapComponent {
           title: '₦ ' + veh.price,
           options: { animation: google.maps.Animation.BOUNCE },
         });
-      })
+      });
+      const {location} = this.vehicleModels[0];
+      this.mapOptions = {
+        center: { lat: location?.latitude, lng: location?.longitude },
+        zoom: 14
+      }
 
     });
 
@@ -125,8 +130,8 @@ export class MapComponent {
   }
 
   parentEventHandlerFunction(event: any) {
-    this.datatransferService.setData(event);
-    this.router.navigate(['/cust/cardetails'])
+    // this.datatransferService.setData(event);
+    this.router.navigate(['/cust/cardetails',event._id])
   }
 
 

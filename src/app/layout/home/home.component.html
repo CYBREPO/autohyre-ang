@@ -40,44 +40,60 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        <!-- <owl-carousel-o [options]="customHomeOptions" *ngIf="page && page.bannerImages">
+            <ng-container *ngFor="let img of page?.bannerImages;let i = index">
+                <ng-template class="slide" carouselSlide [id]="'side' + i">
+                    <img src="{{domain + img}}"  [alt]="'side' + i" [title]="'side' + i">
+                </ng-template>
+            </ng-container>
+
+        </owl-carousel-o> -->
     </div>
 </div>
 <div class="container">
-    
-<section class="my-5 browsebymake">
 
-    <div class="container">
-        <!-- <div class="section-heading text-center mt-md-5">
+    <section class="my-5 browsebymake">
+
+        <div class="container">
+            <!-- <div class="section-heading text-center mt-md-5">
             Find your drive
         </div>
         <div class="section-subheading text-center mb-5">
             Explore the world's largest car sharing marketplace
         </div> -->
 
-        <div [innerHTML]="page?.header" class="section-heading text-center mt-md-5"></div>
-        <b class="fs-4 d-block section-subheading my-5">Browse by Make</b>
+            <div [innerHTML]="page?.header" class="section-heading text-center mt-md-5"></div>
+            <b class="fs-4 d-block section-subheading my-5">Browse by Make</b>
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let vehicleModel of vehicleModels">
+                    <ng-template carouselSlide>
+                        <app-card [cardsData]="vehicleModel"
+                            (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+            <!-- <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
 
-        <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
-
-        </div>
-        <div class="row">
-            <ng-container *ngFor="let vehicleModel of vehicleModels">
-                <div class="col-md-3">
-                    <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
-                </div>
-            </ng-container>
-        </div>
-
-    </div>
-</section>
-<section class="image-text mt-md-5">
-    <div class="container">
-        <div class="row justify-content-center py-md-5">
-            <div class="col-md-5" *ngIf="page?.mainImg">
-                <img src="{{domain + page?.mainImg}}" class="img-fluid" alt="">
             </div>
-            <div class="col-md-5">
-                <!-- <div class="subheading  fs-3 mb-3">
+            <div class="row">
+                <ng-container *ngFor="let vehicleModel of vehicleModels">
+                    <div class="col-md-3">
+                        <app-card [cardsData]="vehicleModel"
+                            (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                    </div>
+                </ng-container>
+            </div> -->
+
+        </div>
+    </section>
+    <section class="image-text mt-md-5">
+        <div class="container">
+            <div class="row justify-content-center py-md-5">
+                <div class="col-md-5" *ngIf="page?.mainImg">
+                    <img src="{{domain + page?.mainImg}}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-5">
+                    <!-- <div class="subheading  fs-3 mb-3">
                     Find the perfect car <span class="text-red">to unwind for the weekend</span>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis illo veritatis sed saepe
@@ -85,68 +101,79 @@
                     nesciunt quas porro suscipit sequi quia, consequatur, quibusdam minus itaque, facilis alias
                     necessitatibus!
                     Quas, vero?.</p>-->
-                <div [innerHTML]="page?.body"></div>
-                <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/carcategory']" role="button">
-                    Browse all
-                    cars
-                </a>
-
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mt-md-5 Browse by destination">
-    <div class="container">
-        <b class="fs-4 d-block section-subheading">Browse by destination</b>
-        <div id="location-owl-carousel" class="owl-carousel owl-theme py-3">
-
-
-            <ng-container *ngFor="let location of locations">
-                <app-card [cardsData]="location" [loc]="true" (clickCard)="locationEvent($event)"></app-card>
-            </ng-container>
-
-
-        </div><!-- #owl-demo-2 -->
-    </div><!-- .container -->
-</section>
-<div class="text-center">
-    <div class="section-heading text-center mt-md-5">
-        Meet the hosts
-    </div>
-</div>
-<section class="hosts">
-    <div class="container">
-        <img src="https://unused-css.com/tools/clip-path-generator?p=22IwJgXCCsA0DskRgDgGxgMwBYB09qrDykJlDBR2AE4BuOgYgDMlnmg"
-            alt="">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <div class="text-block">
-                    <div class="subheading  fs-3 mb-3">
-                        Hire an automobile
-                    </div>
-                    <p> With Flexible Bookings and No Hidden Fees Car hire is worthwhile</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools(2).gif" alt="" class="w-400px">
-            </div>
-        </div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools.gif" alt="" class="movingcar w-400px">
-            </div>
-            <div class="col-md-4 ms-md-5">
-                <div class="text-block">
-                    <div class="subheading  fs-3 mb-3">
-                        Become a host
-                    </div>
-                    <p>Car hire is worthwhile for extra freedom with time and destinations</p>
-                    <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/host']" role="button">
-                        Become a host
+                    <div [innerHTML]="page?.body"></div>
+                    <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/carcategory']"
+                        role="button">
+                        Browse all
+                        cars
                     </a>
+
                 </div>
             </div>
         </div>
+    </section>
+    <section class="mt-md-5 Browse by destination">
+        <div class="container">
+            <b class="fs-4 d-block section-subheading">Browse by destination</b>
+            <div id="location-owl-carousel" class="owl-carousel owl-theme py-3">
+
+            </div>
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let location of locations">
+                    <ng-template carouselSlide>
+                        <app-card [cardsData]="location" [loc]="true" (clickCard)="locationEvent($event)"></app-card>
+                    </ng-template>
+
+                </ng-container>
+            </owl-carousel-o>
+            <!-- <div class="row">
+                <ng-container *ngFor="let location of locations">
+                    <div class="col-md-3">
+                        <app-card [cardsData]="location" [loc]="true" (clickCard)="locationEvent($event)"></app-card>
+                    </div>
+                </ng-container>
+            </div> -->
+            <!-- #owl-demo-2 -->
+        </div><!-- .container -->
+    </section>
+    <div class="text-center">
+        <div class="section-heading text-center mt-md-5">
+            Meet the hosts
+        </div>
     </div>
-</section>
+    <section class="hosts">
+        <div class="container">
+            <img src="https://unused-css.com/tools/clip-path-generator?p=22IwJgXCCsA0DskRgDgGxgMwBYB09qrDykJlDBR2AE4BuOgYgDMlnmg"
+                alt="">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-4">
+                    <div class="text-block">
+                        <div class="subheading  fs-3 mb-3">
+                            Hire an automobile
+                        </div>
+                        <p> With Flexible Bookings and No Hidden Fees Car hire is worthwhile</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="../assets/images/output-onlinegiftools(2).gif" alt="" class="w-400px">
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-4">
+                    <img src="../assets/images/output-onlinegiftools.gif" alt="" class="movingcar w-400px">
+                </div>
+                <div class="col-md-4 ms-md-5">
+                    <div class="text-block">
+                        <div class="subheading  fs-3 mb-3">
+                            Become a host
+                        </div>
+                        <p>Car hire is worthwhile for extra freedom with time and destinations</p>
+                        <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/host']" role="button">
+                            Become a host
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

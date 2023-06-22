@@ -8,8 +8,8 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel" formControlName="price">
-        <input matSliderThumb>
+        <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel" >
+        <input matSliderThumb formControlName="price">
         </mat-slider>
         <mat-form-field>
             <mat-label>Company</mat-label>
@@ -23,16 +23,16 @@
     </form>
 
     <!--MAP starts-->
-    <google-map [options]="mapOptions">
+    <!-- <google-map [options]="mapOptions">
         <map-marker *ngFor="let marker of markers"
         [position]="marker.position"
         [label]="marker.label"
         [title]="marker.title"
         [options]="marker.options"></map-marker>
-     </google-map> 
+     </google-map>  -->
 
-   <input class="form-control" ngx-google-places-autocomplete [options]="options"
-        (onAddressChange)="handleAddressChange($event)" />
+   <!-- <input class="form-control" ngx-google-places-autocomplete [options]="options"
+        (onAddressChange)="handleAddressChange($event)" /> -->
     <!--Map ends-->
 
     <div *ngIf="vehicleModels">

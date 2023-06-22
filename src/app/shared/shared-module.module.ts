@@ -12,16 +12,17 @@ import { AlertComponent } from './alert/alert.component';
 import { HostDetailsComponent } from './host-details/host-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,AlertComponent,
     HostDetailsComponent],
   imports: [
     CommonModule, MaterialModuleModule, ReactiveFormsModule,CKEditorModule,
-    GoogleMapsModule,GooglePlaceModule,
+    GoogleMapsModule,GooglePlaceModule,CarouselModule 
   ],
   entryComponents: [AlertComponent],
   exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,
-    CKEditorModule,AlertComponent,HostDetailsComponent,GoogleMapsModule,GooglePlaceModule,]
+    CKEditorModule,AlertComponent,HostDetailsComponent,GoogleMapsModule,GooglePlaceModule,CarouselModule ]
 })
 export class SharedModuleModule { }

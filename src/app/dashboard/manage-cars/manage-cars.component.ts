@@ -163,6 +163,7 @@ export class ManageCarsComponent {
         this.selectedLoc.postalCode = loc.long_name;
       }
     });
+    this.selectedLoc.address = address.formatted_address;
     this.selectedLoc.latitude = address.geometry.location.lat();
     this.selectedLoc.longitude = address.geometry.location.lng();
     this.selectedLoc.timeZone = address.utc_offset?.toString();

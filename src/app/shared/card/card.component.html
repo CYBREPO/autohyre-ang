@@ -1,11 +1,11 @@
-<article class="thumbnail item" (click)="clickingCard()" *ngIf="cardsData && !loc">
-        <img src="{{domain + this.cardsData.image}}"
+<article class="thumbnail item" (click)="clickingCard()" *ngIf="cardsData">
+        <img src="{{this.cardsData.image}}"
                 class="img-responsive" alt="">
         <div class="caption fw-bolder my-3">{{cardsData.name}}</div>
 </article>
 
-<article class="thumbnail item" (click)="clickingCard()" *ngIf="loc">
+<!-- <article class="thumbnail item" (click)="clickingCard()" *ngIf="loc">
         <img src="{{cardsData.img}}"
                 class="img-responsive" alt="">
         <div class="caption fw-bolder my-3">{{cardsData.title}}</div>
-</article>
+</article> -->
