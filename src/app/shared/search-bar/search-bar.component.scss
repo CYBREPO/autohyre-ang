@@ -14,6 +14,9 @@
     left: 0;
     right: 0;
     z-index: 8;
+    @media screen and (max-width: 992px) {
+        max-width: 90%;
+    }
 }
 
 .search-bar .form-group {

@@ -2,18 +2,6 @@
     <form [formGroup]="searchForm" (submit)="onSubmit()">
         <div class="row d-flex align-items-center">
             <div class="col-lg-4 d-flex align-items-center form-group">
-                <!-- <input class="form-control border-0 shadow-0" type="text" name="search"
-                    placeholder="Enter location" id="location" [matAutocomplete]="auto"
-                    formControlName="location">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngIf="isLocationLoading">
-                        <mat-spinner diameter="20">
-                        </mat-spinner>
-                    </mat-option>
-                    <mat-option *ngFor="let loc of locations" [value]="loc.title">
-                        {{loc.title}}
-                    </mat-option>
-                </mat-autocomplete> -->
                 <input class="form-control" ngx-google-places-autocomplete [options]="options"
                     (onAddressChange)="handleAddressChange($event)" />
             </div>
