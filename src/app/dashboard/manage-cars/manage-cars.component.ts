@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { Options } from 'ngx-google-places-autocomplete/objects/options/options';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination, fuel } from 'src/app/constants/constant';
 import { HttpService } from 'src/app/service/http.service';
@@ -32,8 +34,12 @@ export class ManageCarsComponent {
   isLoading: boolean = false;
   searchText: string = "";
   options: any = {
-    componentRestrictions: { country: 'NGA' }
-  }
+    types: ['address'],
+    componentRestrictions: { country: ['ca', 'us'] }
+
+  } as unknown as Options;
+
+  @ViewChild("placesRef") placesRef!: GooglePlaceDirective;
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -91,6 +97,20 @@ export class ManageCarsComponent {
     this.fileData = event?.target?.files;
   }
 
+  // ngAfterViewInit() {
+  //   this.placesRef.options.componentRestrictions = { country: 'SG' }
+  //   this.placesRef.options.fields = ["formatted_address", "geometry", "place_id"]
+  // }
+
+  // ngAfterViewInit(): void {
+  //   // Load google maps script after view init
+  //   const DSLScript = document.createElement('script');
+  //   DSLScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAlr8Iw9wsuELApTqSxZU0baGXlmMCDJG0'; // replace by your API key
+  //   DSLScript.type = 'text/javascript';
+  //   document.body.appendChild(DSLScript);
+  //   document.body.removeChild(DSLScript);
+  // }
+
   setColums() {
     this.columns = [
       { title: 'Car Company', dataField: 'make', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
@@ -107,6 +127,7 @@ export class ManageCarsComponent {
   }
 
   handleAddressChange(address: Address) {
+    debugger
     console.log(address.formatted_address)
     console.log(address.geometry.location.lat())
     console.log(address.geometry.location.lng())
@@ -189,7 +210,7 @@ export class ManageCarsComponent {
   submit() {
     this.submitted = true;
 
-    if(this.vehicleForm.invalid)
+    if (this.vehicleForm.invalid)
       return;
 
     const formData: FormData = new FormData();

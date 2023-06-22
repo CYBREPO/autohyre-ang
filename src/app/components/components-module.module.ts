@@ -8,8 +8,6 @@ import { SingleCategoryCarDetailsComponent } from './single-category-car-details
 import { MaterialModuleModule } from '../shared/material-module.module';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { QuotesComponent } from './quotes/quotes.component';
 import { BecomeAHostComponent } from './become-a-host/become-a-host.component';
 
@@ -22,8 +20,6 @@ import { BecomeAHostComponent } from './become-a-host/become-a-host.component';
   imports: [
     CommonModule,
     ComponentsRoutingModuleModule,
-    GoogleMapsModule,
-    GooglePlaceModule,
     SharedModuleModule,MaterialModuleModule,MatSelectModule,MatSliderModule,
   ]
 })
