@@ -21095,7 +21095,7 @@
   }
   
   .dt-button-collection.four-column {
-    width: 600px;
+     max-width: 600px;
     -webkit-column-count: 4;
     -moz-column-count: 4;
     -ms-column-count: 4;
