@@ -16,7 +16,7 @@ export class QuotesComponent {
   vehicleForm: FormGroup;
   companies: Array<any> = [];
   models: Array<any> = [];
-  locations: any;
+  locations: any = {};
   submitted: boolean = false;
   options: any = {
     componentRestrictions: { country: 'NGA' }
@@ -73,11 +73,31 @@ export class QuotesComponent {
   }
 
   handleAddressChange(address: Address,type: string) {
-    this.locations[type] = {
-      address: address.formatted_address,
-      latitude: address.geometry.location.lat(),
-      longitude: address.geometry.location.lng(),
-    }
+    let selectedLoc: any = {};
+    address.address_components.forEach(loc => {
+      const type = loc.types[0];
+      if (type?.toLowerCase() == 'locality') {
+        selectedLoc.city = loc.long_name;
+      }
+      if (type?.toLowerCase() == 'administrative_area_level_1') {
+        selectedLoc.state = loc.long_name;
+      }
+      if(type?.toLowerCase() == 'administrative_area_level_2'){
+
+      }
+      if(type?.toLowerCase() == 'country'){
+        selectedLoc.country = loc.long_name;
+      }
+      if(type?.toLowerCase() == 'postal_code'){
+        selectedLoc.postalCode = loc.long_name;
+      }
+    });
+    selectedLoc.address = address.formatted_address;
+    selectedLoc.latitude = address.geometry.location.lat();
+    selectedLoc.longitude = address.geometry.location.lng();
+    selectedLoc.timeZone = address.utc_offset?.toString();
+    
+    this.locations[type] = selectedLoc;
   }
 
   submit(){

@@ -77,13 +77,13 @@ export class SingleCarDetailsLayoutComponent {
     const dialogRef = this.dialog.open(QuotesComponent, {
       height: "80%",
       width: "80%",
-      data: this.cardetails.vehicle
+      data: this.cardetails
     })
 
     dialogRef.afterClosed().subscribe(res => {
       if (res != null) {
         let param = {...res,
-          vehicleId: this.cardetails.vehicle._id,
+          vehicleId: this.cardetails._id,
           userDetails: this.user
         }
         this.httpService.httpPost(ApiUrls.mail.sendMail, param).subscribe(res => { });
