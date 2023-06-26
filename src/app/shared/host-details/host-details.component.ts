@@ -34,18 +34,33 @@ export class HostDetailsComponent {
 
   initForm() {
     this.hostform = this.fb.group({
-      user: [this.data != null ? this.data.userName : ''],
-      car: [this.data != null ? this.data.car : ''],
-      Profile: [''],
-      mobilenumber: [this.data != null ? this.data.mobile : ''],
-      license: [this.data != null ? this.data.drivingLicense : ''],
+      make: [this.data != null ? this.data.make : ''],
+      model: [this.data != null ? this.data.model : ''],
+      year: [this.data != null ? this.data.year : ''],
+      vin: [this.data != null ? this.data.vin : ''],
+
+      ownerName: [this.data != null ? this.data.ownerName : ''],
+      ownerMobile: [this.data != null ? this.data.ownerMobile : ''],
+      ownerProfile: [this.data != null ? this.data.ownerProfile : ''],
+      // sameDriver: [this.data != null ? this.data.car : ''],
+
+      driverName: [this.data != null ? this.data.driverDetails.driverName : ''],
+      drivingLicense: [this.data != null ? this.data.driverDetails.drivingLicense : ''],
+      driverMobile: [this.data != null ? this.data.driverDetails.driverMobile : ''],
+      driverProfile: [this.data != null ? this.data.driverDetails.driverProfile : ''],
+
       goals: [this.data != null ? this.data.goals : ''],
-      availability: [this.data != null ? this.data.carAvailability : ''],
-      details: [this.data != null ? this.data.carDetail : ''],
-      photos: [''],
-      payout: [this.data != null ? this.data.payout : ''],
-      qualitystandards: [this.data != null ? this.data.safetyQuantity : ''],
-      submityourlisting: [this.data != null ? this.data.submityourlisting : ''],
+      carAvailability: [this.data != null ? this.data.carAvailability : ''],
+      photos: [this.data != null ? this.data.photos : ''],
+      bankName: [this.data != null ? this.data.payout.bankName : ''],
+      accountName: [this.data != null ? this.data.payout.accountName : ''],
+      accountNumber: [this.data != null ? this.data.payout.accountNumber : ''],
+      safetyQuantity: [this.data != null ? this.data.safetyQuantity : ''],
+
+      airBags: [this.data != null ? this.data.airBags : ''],
+      fireExtinguisher: [this.data != null ? this.data.fireExtinguisher : ''],
+      cCaution: [this.data != null ? this.data.cCaution : ''],
+      umbrella: [this.data != null ? this.data.umbrella : ''],
     });
     if (this.data)
       this.data.status = this.data?.status == '' || this.data?.status == null ? 'Pending' : this.data?.status;

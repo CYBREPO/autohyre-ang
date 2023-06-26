@@ -21,6 +21,7 @@ class vehicle{
     public static getAdditionDetails = "vehicle/getAdditionDetails";
     public static getVehicles = "vehicle/getVehicles";
     public static deleteVehicle = "vehicle/deleteVehicle";
+    public static updateVehicleDetails = "vehicle/updateVehicleDetails";
 }
 class location{
     public static getLocationVechile = "location/getLocationVechile";

@@ -192,7 +192,8 @@
                                                 <label for="" class="d-block">Location</label>
                                                 <input class="form-control" ngx-google-places-autocomplete 
                                                     [options]="options"
-                                                    (onAddressChange)="handleAddressChange($event)" />
+                                                    (onAddressChange)="handleAddressChange($event)" 
+                                                    formControlName="location"/>
                                                 <!-- <span class="text-danger d-block mt-2"
                                                     *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Location
                                                     is
@@ -220,7 +221,7 @@
                                                 <label for="description" class="d-block">Description</label>
                                                 <textarea class="form-control" type="text" formControlName="description"
                                                     name="description" id="description"></textarea>
-                                                <span class="text-danger d-block mt-2" *ngIf="submitted && vehicleForm.get('description')?.errors?.['required']">Year is required</span>
+                                                <span class="text-danger d-block mt-2" *ngIf="submitted && vehicleForm.get('description')?.errors?.['required']">Description is required</span>
                                             </div>
                                         </div>
                                     </div>

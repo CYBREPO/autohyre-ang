@@ -86,8 +86,11 @@ export class ManageCarsComponent {
       seats: ['', [Validators.required]],
       year: ['', [Validators.required]],
       vin: ['', [Validators.required]],
+      vehicleDetailsId: [""],
+      location: [''],
 
 
+      featureId: [""],
       ageBook: [false],
       automaticTransmission: [false],
       AllWheelDrive: [false],
@@ -114,20 +117,6 @@ export class ManageCarsComponent {
     this.fileData = event?.target?.files;
   }
 
-  // ngAfterViewInit() {
-  //   this.placesRef.options.componentRestrictions = { country: 'SG' }
-  //   this.placesRef.options.fields = ["formatted_address", "geometry", "place_id"]
-  // }
-
-  // ngAfterViewInit(): void {
-  //   // Load google maps script after view init
-  //   const DSLScript = document.createElement('script');
-  //   DSLScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAlr8Iw9wsuELApTqSxZU0baGXlmMCDJG0'; // replace by your API key
-  //   DSLScript.type = 'text/javascript';
-  //   document.body.appendChild(DSLScript);
-  //   document.body.removeChild(DSLScript);
-  // }
-
   setColums() {
     this.columns = [
       { title: 'Car Company', dataField: 'make', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
@@ -136,7 +125,7 @@ export class ManageCarsComponent {
       { title: 'Year', dataField: 'year', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
-          // { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
+          { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
           { title: "delete", event: "delete", type: GridActionType.ICON, class: "fa fa-trash" },
         ]
       }
@@ -234,12 +223,20 @@ export class ManageCarsComponent {
     if (evt.event == 'edit') {
       this.modalBtn.nativeElement.click();
       this.vehicleForm.patchValue({
-        id: evt['data']['id'],
+        id: evt['data']['_id'],
         brand: evt['data']['make'],
         model: evt['data']['model'],
         price: evt['data']['price'],
         type: evt['data']['type'],
         year: evt['data']['year'],
+        vin: evt['data']['vin'],
+        location: evt['data']['location']['address']
+
+      });
+      this.selectedLoc = evt['data']['location'];
+      this.getBrandsById();
+      this.vehicleForm.patchValue({
+        model: evt['data']['model'],
       });
       this.getVehicleDetails(evt.data._id);
     }
@@ -253,7 +250,9 @@ export class ManageCarsComponent {
 
     const formData: FormData = new FormData();
     formData.append(`description`, this.formControl['description'].value);
-    // formData.append(`id`, "");
+    formData.append(`id`, this.formControl['id'].value);
+    formData.append(`vehicleDetailsId`, this.formControl['vehicleDetailsId'].value);
+    formData.append(`featureId`, this.formControl['featureId'].value);
     formData.append(`listingCreatedTime`, "");
     formData.append(`make`, this.formControl['brand'].value);
     formData.append(`vin`, this.formControl['vin'].value);
@@ -296,8 +295,11 @@ export class ManageCarsComponent {
       formData.append(`images`, this.fileData[i]);
     }
 
-
-    this.httpService.httpPostFormData(ApiUrls.vehicle.setVehicleDetails, formData).subscribe((res: any) => {
+    let api = ApiUrls.vehicle.setVehicleDetails;
+    if(this.formControl['id'].value && this.formControl['id'].value != ""){
+      api = ApiUrls.vehicle.updateVehicleDetails;
+    }
+    this.httpService.httpPostFormData(api, formData).subscribe((res: any) => {
       if (res['success']) {
         this.modalBtn.nativeElement.click();
         this.vehicleForm.reset();
@@ -309,19 +311,7 @@ export class ManageCarsComponent {
   }
 
   getVehicleDetails(id: string) {
-    // this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,{id: id}).subscribe((res: any) => {
-    //   if(res['success']){
-    //     this.vehicleForm.patchValue({
-    //       id: res['data']['id'],
-    //       description: res['data']['description'],
-    //       brand: res['data']['brand'],
-    //       model: res['data']['model'],
-    //       price: res['data']['price'],
-    //       type: res['data']['type'],
-    //       year: res['data']['year'],
-    //     });
-    //   }
-    // })
+    
     this.httpService.httpGet(ApiUrls.vehicle.getAdditionDetails + "?id=" + id, null).subscribe((res: any) => {
       if (res['success']) {
         this.vehicleForm.patchValue({
@@ -332,7 +322,9 @@ export class ManageCarsComponent {
           seats: res['data']['basicDetails']['numberOfSeats'],
           mileage: res['data']['basicDetails']['averageFuelEconomy'],
           fuelType: res['data']['basicDetails']['fuelType']['label'],
+          vehicleDetailsId: res['data']['basicDetails']['_id'],
 
+          featureId: res['data']['features']['_id'],
           ageBook: res['data']['features']['ageBook'],
           automaticTransmission: res['data']['features']['automaticTransmission'],
           AllWheelDrive: res['data']['features']['AllWheelDrive'],
