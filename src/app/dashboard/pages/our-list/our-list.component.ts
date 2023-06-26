@@ -93,7 +93,7 @@ export class OurListComponent {
     }
 
     let api = ApiUrls.pages.saveOurLink;
-    if (this.data._id && this.data._id != "") {
+    if (this.data?._id && this.data?._id != "") {
       formData.append(`id`, this.data._id);
       api = ApiUrls.pages.updateOurList;
     }

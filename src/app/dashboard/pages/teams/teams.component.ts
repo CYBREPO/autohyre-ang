@@ -52,6 +52,7 @@ export class TeamsComponent {
           profile: '',
           id: m._id
         }));
+        arr.controls[arr.length - 1].disable();
       });
       arr.push(this.fb.group({
         name: [],
@@ -73,6 +74,7 @@ export class TeamsComponent {
           profile: '',
           id: m._id
         }));
+        arr.controls[arr.length - 1].disable();
       });
       arr.push(this.fb.group({
         name: [],

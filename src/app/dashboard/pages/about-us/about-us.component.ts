@@ -55,7 +55,7 @@ export class AboutUsComponent {
     formData.append(`mainImg`,this.aboutusForm.controls['mainImg'].value);
 
     let api = ApiUrls.pages.saveAboutus;
-    if(this.data._id && this.data._id != ""){
+    if(this.data?._id && this.data?._id != ""){
       formData.append(`id`,this.data._id);
       api = ApiUrls.pages.updateAboutus;
     }
