@@ -9,13 +9,13 @@
 </div>
 <section _ngcontent-ntv-c34 class="image-text mt-md-5">
     <div _ngcontent-ntv-c34 class="container">
-        <div _ngcontent-ntv-c34 class="row justify-content-center py-md-5">
+        <div _ngcontent-ntv-c34 class="row justify-content-center py-md-5 flex-column-reverse flex-md-row">
             <div _ngcontent-ntv-c34 class="col-md-5">
                 <img _ngcontent-ntv-c34 *ngIf="data?.mainImg"
                     src="{{domain + data?.mainImg}}" alt
                     class="img-fluid">
             </div>
-            <div _ngcontent-ntv-c34 class="col-md-5">
+            <div _ngcontent-ntv-c34 class="col-md-5 mb-5 mb-md-0">
                 <div [innerHTML]="data?.body??''"></div>
                 <a _ngcontent-ntv-c34 [routerLink]="['/cust/carcategory']" role="button"
                     class="btn btn-outline-light btn-lg button-blue">
